@@ -1,4 +1,4 @@
-package com.javasampleapproach.angularjs.model;
+package com.example.model;
 
 
 public class Customer {
