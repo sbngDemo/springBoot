@@ -38,7 +38,7 @@ body{margin: 0; padding: 0; font-family: 'Ubuntu', sans-serif; background-color:
 
 
 /*dashboard page*/
-.body-wrapper{ padding-top: 50px;}
+.body-wrapper{ padding-top: 10px;}
 .dashboard-nav{width: 100%; float: left; background: #5A57A1;}
 .dashboard-nav .navbar{margin-bottom: 0; float: right;}
 .dashboard-nav span.icon-bar{background: white;}
@@ -84,7 +84,7 @@ i.notification{font-size: 33px;
     line-height: 1.5;}
 .notif-name span:nth-child(2){color: white;}  
 .notif-time{font-size: 14px; color: grey;    font-size: 12px; line-height: 20px;}  
-.col-sm-6{padding-top:10px;}
+.col-sm-6{padding-top:10px;padding-right:20px;}
 
 .search-container{padding-top: 20px;}
 .search-container>div{position: relative; display: inline;}
