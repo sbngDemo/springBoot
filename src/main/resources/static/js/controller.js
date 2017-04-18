@@ -1,4 +1,4 @@
-var app = angular.module('app', []);
+/*var app = angular.module('app', []);
 app.controller('postcontroller', function($scope, $http, $location) {
     $scope.submitForm = function(){
         var url = $location.absUrl() + "postcustomer";
@@ -41,4 +41,19 @@ app.controller('getcontroller', function($scope, $http, $location) {
             $scope.getResultMessage = "Fail!";
         });
     }
+});*/
+
+angular.module('app', ['app.projectDesciptions','datatables']);
+
+angular.module('app.projectDesciptions', []).controller('projectDesciptions', function($scope,DTOptionsBuilder, DTColumnBuilder, $http) {
+	
+	 $http.get("/projectDetails/").then(function (response) {
+	      $scope.projDetails = response.data.projectDetails;
+	  });
+	
+			  
+	$scope.vm = {};
+
+	$scope.vm.dtOptions = DTOptionsBuilder.newOptions()
+	  .withOption('order', [0, 'asc']);
 });

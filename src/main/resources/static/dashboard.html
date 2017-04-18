@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
 	<title>Dashboard</title>
@@ -8,6 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
 
 
 	<!-- js -->
@@ -15,19 +17,15 @@
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 	  crossorigin="anonymous"></script>
+		
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
-	<script>
-	   $(document).ready(function() {
-		    $('#example').DataTable();
-		} );
-	</script>
+	
 
 </head>
-<body>
+<body ng-app="app">
 	<div class="container-fluid">
 		<div class="row">
 			  <div class="dashboard-nav">
@@ -99,7 +97,7 @@
 
 					<div class="row">
 						<div class="col-md-12">
-						  <div style="background-color: white;direction: ltl; height: 700px; overflow-x: hidden;">
+						  <div style="background-color: white;direction: ltl; height: 650px; overflow-x: hidden;">
 							    <form>
 									<div class="form-group text-center search-container">
 									  <div>
@@ -362,8 +360,8 @@
 						    </div>
 					    </div>
                     </div>
-                    <div class="row" style="background-color: white;direction: ltl; height: 700px; overflow: auto;">
- 				       <table width="100%" class="table table-striped table-bordered" id="example" cellspacing="0">
+                    <div ng-controller="projectDesciptions" class="row" style="background-color: white;direction: ltl; height: 650px; overflow: auto;">
+ 				       <table width="100%" class="table table-striped table-bordered" datatable="ng" id="example" dt-options="vm.dtOptions" cellspacing="0">
 						  <thead style="background-color: lightgrey;">
 							 <tr>
 	                            <th>Project Name</th>
@@ -374,449 +372,26 @@
 	                            <th>Date Completion</th>
 	                            <th>Action</th>
 							 </tr>
-						  </thead>
-						  <tfoot>
-							 <tr>
-	                            <th>Project Name</th>
-	                            <th>Project ID</th>
-	                            <th>Created By:</th>
-	                            <th>Project Status</th>
-	                            <th>Date Initiation</th>
-	                            <th>Date Completion</th>
-	                            <th>Action</th>
-							 </tr>
-						  </tfoot>
+						  </thead>			  
+						
 						  <tbody>
-							 <tr>
-		                         <td>Project 01</td>
-		                         <td>Project ID: 1</td>
-		                         <td>Rob Johnson</td>
-		                         <td><span class="warning">Warning</span></td>
-		                         <td>02/02/2017</td>
-		                         <td>05/02/2017</td>
-		                         <td class="actions">
-		                             <i class="fa fa-eye"></i>
-		                             <i class="fa fa-pencil"></i>
-		                             <i class="fa fa-times"></i>
-		                         </td>
-							 </tr>
-							 <tr>
-                                 <td>Project 02</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-           
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 03</td>
-                                 <td>Project ID: 1</td>
-                                 <td>John Smith</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                          
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 04</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                            
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 05</td>
-                                 <td>Project ID: 1</td>
-                                  <td>John Smith</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                 
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 06</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 07</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 08</td>
-                                 <td>Project ID: 1</td>
-                                  <td>John Smith</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                               
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 09</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Donald Watson</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 10</td>
-                                 <td>Project ID: 1</td>
-                                 <td>John Smith</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 11</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Donald Watson</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 12</td>
-                                 <td>Project ID: 1</td>
-                                 <td>John Smith</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 13</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 14</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 15</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 16</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 17</td>
-                                 <td>Project ID: 1</td>
-                                 <td>John Smith</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 18</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 19</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Donald Watson</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 20</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 21</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 22</td>
-                                 <td>Project ID: 1</td>
-                                 <td>John Smith</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 23</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 24</td>
-                                 <td>Project ID: 1</td>
-                                 <td>John Smith</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 25</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 26</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Donald Watson</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 27</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 28</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Donald Watson</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 29</td>
-                                 <td>Project ID: 1</td>
-                                 <td>John Smith</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 30</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 31</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Mark Harrington</td>
-                                 <td><span class="warning">Warning</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 32</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Rob Johnson</td>
-                                 <td><span class="completed">Completed</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <td>Project 33</td>
-                                 <td>Project ID: 1</td>
-                                 <td>Donald Watson</td>
-                                 <td><span class="error">Error</span></td>
-                                 <td>02/02/2017</td>
-                                 <td>05/02/2017</td>
-                                 <td class="actions">
-                                     <i class="fa fa-eye"></i>
-                                     <i class="fa fa-pencil"></i>
-                                     <i class="fa fa-times"></i>
-                                 </td>
-                             </tr>
+						  
+								 <tr ng-repeat="project in projDetails">
+			                         <td>{{project.projectName}}</td>
+			                         <td>{{project.projectId}}</td>
+			                         <td>{{project.createdBy}}</td>
+			                         <td><span class="{{ project.projectStatus | lowercase}}">{{project.projectStatus}}</span></td>
+			                         <td>{{project.dateInitiation}}</td>
+			                         <td>{{project.dateCompletion}}</td>
+			                         <td class="actions">
+			                             <i class="fa fa-eye"></i>
+			                             <i class="fa fa-pencil"></i>
+			                             <i class="fa fa-times"></i>
+			                         </td>
+								 </tr>
+							
 						  </tbody>
+						  
                         </table>	
 				    </div>	
 	       </div>
@@ -824,6 +399,8 @@
     </div>
  
 </div> <!-- container-fluid -->
-
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+ <script src="js/angular-datatables.min.js"></script>
+<script src="js/controller.js"></script>
 </body>
 </html>
