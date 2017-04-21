@@ -8,11 +8,8 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-
-
-	<!-- js -->
 	<script
 	  src="https://code.jquery.com/jquery-3.2.1.min.js"
 	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -22,7 +19,60 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
+	<script>
 	
+	$(document).ready(function() {
+		    var table = $('#example').DataTable( {
+		        "scrollY": "200px",
+		        "paging": false
+		    } );
+		 
+		    $('a.toggle-vis').on( 'click', function (e) {
+		        e.preventDefault();
+		 
+		        // Get the column API object
+		        var column = table.column( $(this).attr('data-column') );
+		 
+		        // Toggle the visibility
+		        column.visible( ! column.visible() );
+		    } );
+		} );
+	
+	function selView1(col1,col2) {
+	        
+		var tb1= document.getElementById("table1");
+			for (var i = 0; i < tb1.rows.length; i++) { 
+				for (var j = 0; j < tb1.rows[i].cells.length; j++) { 
+					tb1.rows[i].cells[j].style.display = "";
+					if (j == col1 || j == col2) { 
+						   tb1.rows[i].cells[j].style.display = "none"; 
+					} 
+				} 
+			}		
+	}
+    function selView2(col1,col2) {
+        var tb1= document.getElementById("table1");
+            for (var i = 0; i < tb1.rows.length; i++) { 
+                for (var j = 0; j < tb1.rows[i].cells.length; j++) {
+                	tb1.rows[i].cells[j].style.display = "";
+                    if (j == col1 || j == col2) { 
+                           tb1.rows[i].cells[j].style.display = "none"; 
+                    } 
+                } 
+            }       
+    }
+    function selView3(col1,col2) {
+        var tb1= document.getElementById("table1");
+            for (var i = 0; i < tb1.rows.length; i++) { 
+                for (var j = 0; j < tb1.rows[i].cells.length; j++) {
+                	tb1.rows[i].cells[j].style.display = "";
+                    if (j == col1 || j == col2) { 
+                           tb1.rows[i].cells[j].style.display = "none"; 
+                    } 
+                } 
+            }       
+    }
+	</script>
 
 </head>
 <body ng-app="app">
@@ -110,12 +160,17 @@
 										<div class="col-md-6">
 											<select>
 												<option>Show only</option>
+												<option>High</option>
+												<option>Medium</option>
+												<option>Low</option>
 											</select>
 										</div>
 
 										<div class="col-md-6">
 											<select>
 												<option>Bulk actions</option>
+												<option>Mark Unread</option>
+												<option>Mark Read</option>
 											</select>
 										</div>
 									</div>
@@ -356,26 +411,36 @@
 					<div class="row">
 						<div class="col-md-12">
 							<h1 class="pull-left">Manage <small style="font-size: 26px;">Projects</small></h1>
+
 							<div class="pull-right"><a href="#"><img width="50" src="images/add-button.png" style="padding-top: 10px;"></a></span>
 						    </div>
+						    <h1 class="pull-right" style="padding-right: 10px">
+	                            <small style="font-size: 18px;">
+		                             <select>
+		                                 <option>Show View</option>
+		                                 <option onClick="selView1('1','2');">View1</option>
+		                                 <option onClick="selView2('4','5');">View2</option>
+		                                 <option onClick="selView3('2','3');">View3</option>
+		                             </select>
+	                             </small>
+                            </h1>
 					    </div>
                     </div>
                     <div ng-controller="projectDesciptions" class="row" style="background-color: white;direction: ltl; height: 650px; overflow: auto;">
- 				       <table width="100%" class="table table-striped table-bordered" datatable="ng" id="example" dt-options="vm.dtOptions" cellspacing="0">
+ 				       <table id="table1" width="100%" class="table table-striped table-bordered" datatable="ng" id="example" dt-options="vm.dtOptions" cellspacing="0">
 						  <thead style="background-color: lightgrey;">
 							 <tr>
-	                            <th>Project Name</th>
-	                            <th>Project ID</th>
-	                            <th>Created By:</th>
-	                            <th>Project Status</th>
-	                            <th>Date Initiation</th>
-	                            <th>Date Completion</th>
-	                            <th>Action</th>
+	                            <th id="th1">Project Name</th>
+	                            <th id="th2">Project ID</th>
+	                            <th id="th3">Created By:</th>
+	                            <th id="th4">Project Status</th>
+	                            <th id="th5">Date Initiation</th>
+	                            <th id="th6">Date Completion</th>
+	                            <th id="th7">Action</th>
 							 </tr>
 						  </thead>			  
 						
 						  <tbody>
-						  
 								 <tr ng-repeat="project in projDetails">
 			                         <td>{{project.projectName}}</td>
 			                         <td>{{project.projectId}}</td>
@@ -385,12 +450,11 @@
 			                         <td>{{project.dateCompletion}}</td>
 			                         <td class="actions">
 			                             <i class="fa fa-eye"></i>
-			                             <i class="fa fa-pencil"></i>
+			                             <a href="deid.html"><i class="fa fa-pencil"></i></a>
 			                             <i class="fa fa-times"></i>
 			                         </td>
 								 </tr>
-							
-						  </tbody>
+							</tbody>
 						  
                         </table>	
 				    </div>	
