@@ -16,5 +16,10 @@ public class ProjectRestController {
 		return fileReader.readJsonDataFromFile("projectDetails.txt");
 		
 	}
+	
+	@RequestMapping("/notifications")
+	public String getEmployee(){
+		return fileReader.readJsonDataFromFile("stubbedData/notifications.txt");		
+	}
 
 }

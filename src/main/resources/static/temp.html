@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <link data-require="bootstrap-css@3.2.0" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <script data-require="angular.js@1.3.1" data-semver="1.3.1" src="//code.angularjs.org/1.3.1/angular.js"></script>
+    <script data-require="ui-bootstrap@0.11.0" data-semver="0.11.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.min.js"></script>
+   
+
+    
+  </head>
+
+  <body ng-app="myApp" >
+  <div ng-controller="filterCtrl">
+    <table  st-table="displayCollection" st-safe-src="rowCollection" st-set-filter="myStrictFilter" class="table table-striped">
+    <thead>
+        <tr>
+        	<th st-sort="status">Status</th>
+            <th st-sort="notification">Notification</th>            
+            <th st-sort="timestamp">Time/Date</th>         
+        </tr>
+        <tr>
+            <th>
+                <input st-search="status" placeholder="search for status" class="input-sm form-control" type="search"/>
+            </th>
+            <th>
+                <select st-search="status">
+                    <option value="">All</option>
+                    <option ng-repeat="row in rowCollection | unique:'status'" value="{{row.status}}">{{row.status}}</option>
+                </select>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="row in displayCollection">
+            <td>{{row.status}}</td>
+            <td>{{row.notification}}</td>
+            <td>{{row.timestamp}}</td>            
+        </tr>
+    </tbody>
+    <tfoot>
+			<tr>
+				<td colspan="5" class="text-center">
+					<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="7"></div>
+				</td>
+			</tr>
+		</tfoot>
+</table>
+</div>
+  </body>
+ <script src="js/smart-table.js"></script>
+     <script src="js/script.js"></script>
+    
+</html>
