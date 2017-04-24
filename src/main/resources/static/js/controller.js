@@ -1,4 +1,5 @@
 
+
 var app = angular.module('myApp', ['myApp.filterCtrl', 'smart-table' ]);
 angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, $filter, $http) {
 	$scope.loading = true;

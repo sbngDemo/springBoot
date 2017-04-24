@@ -95,7 +95,16 @@ i.notification{font-size: 33px;
 /*.table-options-sm>div>div{max-width: 500px;
     margin: 0 auto;}*/
 
+.warning-notification{
+	color: #F0AD57;	
+}
+.completed-notification{
+	color: #5FB863;	
+}
 
+.high-notification{
+	color: red;	
+}
 
 .notif-row input[type="checkbox"]{zoom:2;}
 .pagination li a{color: black;}
