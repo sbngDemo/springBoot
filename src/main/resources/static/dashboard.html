@@ -7,72 +7,11 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-
-	<script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous"></script>
-		
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
-
-	<script>
-	
-	$(document).ready(function() {
-		    var table = $('#example').DataTable( {
-		        "scrollY": "200px",
-		        "paging": false
-		    } );
-		 
-		    $('a.toggle-vis').on( 'click', function (e) {
-		        e.preventDefault();
-		 
-		        // Get the column API object
-		        var column = table.column( $(this).attr('data-column') );
-		 
-		        // Toggle the visibility
-		        column.visible( ! column.visible() );
-		    } );
-		} );
-	
-	function selView1(col1,col2) {
-	        
-		var tb1= document.getElementById("table1");
-			for (var i = 0; i < tb1.rows.length; i++) { 
-				for (var j = 0; j < tb1.rows[i].cells.length; j++) { 
-					tb1.rows[i].cells[j].style.display = "";
-					if (j == col1 || j == col2) { 
-						   tb1.rows[i].cells[j].style.display = "none"; 
-					} 
-				} 
-			}		
-	}
-    function selView2(col1,col2) {
-        var tb1= document.getElementById("table1");
-            for (var i = 0; i < tb1.rows.length; i++) { 
-                for (var j = 0; j < tb1.rows[i].cells.length; j++) {
-                	tb1.rows[i].cells[j].style.display = "";
-                    if (j == col1 || j == col2) { 
-                           tb1.rows[i].cells[j].style.display = "none"; 
-                    } 
-                } 
-            }       
-    }
-    function selView3(col1,col2) {
-        var tb1= document.getElementById("table1");
-            for (var i = 0; i < tb1.rows.length; i++) { 
-                for (var j = 0; j < tb1.rows[i].cells.length; j++) {
-                	tb1.rows[i].cells[j].style.display = "";
-                    if (j == col1 || j == col2) { 
-                           tb1.rows[i].cells[j].style.display = "none"; 
-                    } 
-                } 
-            }       
-    }
-	</script>
 
 </head>
 <body>
@@ -148,67 +87,65 @@
 					<div class="row">
 						<div class="col-md-12">
 						  <div style="background-color: white;direction: ltl; height: 650px; overflow-x: hidden;">
-							    
-
-							<!-- ------------------------------------------------- -->
-								<!-- <div class="row">
-									<div class="col-md-12"> -->
-										<div ng-app="myApp" ng-controller="filterCtrl">
-											<table st-table="displayCollection" st-safe-src="rowCollection" st-set-filter="myStrictFilter" class="table table-striped">
-												<thead>
-													<!-- <tr >
-														<th st-sort="status"></th>
-														<th st-sort="notification"></th>
-														<th st-sort="timestamp"></th>
-														<th st-sort="action"></th>
-													</tr> -->
-													<tr>
-														<th colspan="4"  st-ratio="100"
-															class="form-group text-center search-container" >
-														 <input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />														
-
-														</th>
-													</tr>
-													<tr>
-														
-														<th colspan="3" st-ratio="60" align="right"><select st-search="status">
-																<option value=""> Show Only </option>
-																<option ng-repeat="row in rowCollection | unique:'status'" 	value="{{row.status}}">{{row.status}}</option>
-														</select></th>
-														
-														<th  st-ratio="40" align="right"><select>
-															<option>Bulk actions</option>
-															<option>Mark Unread</option>
-															<option>Mark Read</option>
-															</select>
-														</th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr ng-repeat="row in displayCollection">
-														<td st-ratio="10">{{$index+1}}</td>
-														<!-- <td st-ratio="10" class="fa fa-square {{ row.status | lowercase}}-notification">&nbsp</td> -->
-														<td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
-														<td st-ratio="50">{{row.notification}}</td>
-														<td st-ratio="20">{{row.timestamp}}</td>
-														<td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
-														<td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-													</tr>
-												</tbody>
-												<!-- <tfoot>
-													<tr>
-														<td colspan="5" class="text-center">
-															<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="3"></div>
-														</td>
-													</tr>
-												</tfoot> -->
-											</table>
-										</div>
-							<!-- 		</div>
-								</div> -->
-<!-- ------------------------------------------------- -->                                  
-
-							
+						  
+					<!-- ------------------------------------------------- -->
+								<div ng-app="myApp" ng-controller="filterCtrl">
+									<table st-table="displayCollection" st-safe-src="rowCollection" st-set-filter="myStrictFilter" class="table table-striped">
+										<thead>
+											<!-- <tr >
+												<th st-sort="status"></th>
+												<th st-sort="notification"></th>
+												<th st-sort="timestamp"></th>
+												<th st-sort="action"></th>
+											</tr> -->
+											<tr>
+											<th  st-ratio="10" align="right"></th>
+												<th colspan="4"  st-ratio="80"
+													class="form-group text-center search-container" >
+												 <input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />														
+	
+												</th>
+												<th  colspan="2" st-ratio="10" align="right"></th>
+											</tr>
+											<tr>
+												<th  st-ratio="10" align="right"></th>
+												<th colspan="2" st-ratio="50" >
+												<select st-input-event="change" st-search="status">
+														<option value=""> Show Only </option>
+														<option ng-repeat="row in rowCollection | unique:'status'" 	value="{{row.status}}">{{row.status}}</option>
+												</select></th>
+												
+												<th  colspan="3" st-ratio="35" align="right"><select st-input-event="change">
+													<option>Bulk actions</option>
+													<option>Mark Unread</option>
+													<option>Mark Read</option>
+													</select>
+												</th>
+												<th  st-ratio="10" align="right"></th>
+												
+											</tr>
+										</thead>
+										<tbody>
+											<tr ng-repeat="row in displayCollection">
+												<td st-ratio="10">{{$index+1}}</td>
+												<!-- <td st-ratio="10" class="fa fa-square {{ row.status | lowercase}}-notification">&nbsp</td> -->
+												<td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
+												<td st-ratio="50">{{row.notification}}</td>
+												<td st-ratio="20">{{row.timestamp}}</td>
+												<td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
+												<td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
+											</tr>
+										</tbody>
+										<!-- <tfoot>
+											<tr>
+												<td colspan="5" class="text-center">
+													<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="3"></div>
+												</td>
+											</tr>
+										</tfoot> -->
+									</table>
+								</div>
+<!-- ------------------------------------------------- -->
                               
 						  </div>	
 						</div>
@@ -276,5 +213,6 @@
  <script src="js/angular-datatables.min.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/smart-table.js"></script>
+<script src="js/utils.js"></script>
 </body>
 </html>
