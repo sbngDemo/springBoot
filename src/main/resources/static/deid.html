@@ -7,10 +7,13 @@
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
       <script src="/js/controller.js"></script>
-
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="http://angular-ui.github.com/bootstrap/ui-bootstrap-tpls-0.2.0.js"></script>
+     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
       <link rel="stylesheet" type="text/css" href="css/style.css"/>
-      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+     
        
 </head>
  
@@ -30,6 +33,9 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
+                        <li>
+                            <a href="#takeControl">Notification: 11</a>
+                        </li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Name
                             <span class="caret"></span></a>
@@ -68,11 +74,39 @@
         </div>
    </div>
     
-   <div class="body-wrapper">
+   <div class="body-wrapper" align="center">
      <div class="row">
-            <div style="background-color: white;direction: ltl; overflow-x: auto;">
-                <iframe src="http://127.0.0.1:3177/" height="700px" width="1900px"></iframe>
-            </div>
+     
+     
+	   <div class="col-sd-12">
+        	<ul class="nav nav-tabs">
+	        	<li> <a data-toggle="tab" href="#tab1tab">Analysis </a> </li>
+	        	<li> <a data-toggle="tab" href="#tab2tab">Analysis </a> </li>
+	        	<li> <a data-toggle="tab" href="#tab3tab">Analysis </a> </li>
+	        	<li> <a data-toggle="tab" href="#tab4tab">Analysis </a> </li>
+	        	<li> <a data-toggle="tab" href="#tab5tab">Analysis </a> </li>
+        	
+        	</ul>
+        	<div class="tab-content row">
+        		<div id="tab1tab" class="tab-pane fade border row">
+	        		<div style="background-color: white;direction: ltl; overflow-x: auto;">
+	                	<iframe src="https://beta.rstudioconnect.com/jjallaire/shiny-eruptions/" height="700px" width="100%"></iframe>
+	            	</div> 
+        		</div>
+        		<div id="tab2tab" class="tab-pane fade border row">
+        		
+        			<iframe src="https://gallery.shinyapps.io/087-crandash/" height="700px" width="95%"></iframe>
+        		</div>
+        		
+        		
+        		<div id="tab3tab" class="tab-pane fade border row">
+        			<iframe src="https://gallery.shinyapps.io/086-bus-dashboard/" height="700px" width="100%"></iframe>
+        		</div>
+        		<div id="tab4tab" class="tab-pane fade border row"></div>
+        		<div id="tab5tab" class="tab-pane fade border row"></div>
+        	</div>
+           
+        </div>
         
      </div>
     </div>    
