@@ -14,8 +14,8 @@
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
 </head>
-<body>
-	<div class="container-fluid">
+<body >
+	<div  class="container-fluid">
 		<div class="row">
 			  <div class="dashboard-nav">
 			    <nav class="navbar">
@@ -75,12 +75,13 @@
 			<div class="row">
 		       <div class="col-sd-12">
 		            <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
-		                <li style="width: 16.66%" class="active"> <a data-toggle="tab" href="#tab1tab">Dashboard</a> </li>
-		                <li style="width: 16.66%"> <a data-toggle="tab" href="#tab2tab">Risk Analysis</a> </li>
-		                <li style="width: 16.66%"> <a data-toggle="tab" href="#tab3tab">Data De-Identification</a> </li>
-		                <li style="width: 16.66%"> <a data-toggle="tab" href="#tab4tab">Doc De-Identification</a> </li>
-		                <li style="width: 16.66%"> <a data-toggle="tab" href="#tab5tab">Anonymization</a> </li>
-		                <li style="width: 16.66%"> <a data-toggle="tab" href="#tab6tab">Reports</a> </li>
+		                <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="#tab1tab">Dashboard</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab7tab">Home</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab2tab">Risk Analysis</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab3tab">Data De-Identification</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab4tab">Doc De-Identification</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab5tab">Anonymization</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab6tab">Reports</a> </li>
 		            
 		            </ul>
 		            <div class="tab-content row active">
@@ -168,7 +169,7 @@
 				                <div class="col-md-9" style="padding-left: 5px;">
 				                    <div class="row">
 				                        <div class="col-md-12">
-				                            <h1 class="pull-left">Manage <small style="font-size: 26px;">Projects</small></h1>
+				                            <h1 class="pull-left">Dashboard</small></h1>
 				
 				                            <div class="pull-right" style="padding-right: 20px"><a href="#"><img width="50" src="images/add-button.png" style="padding-top: 10px;"></a></span>
 				                            </div>
@@ -218,6 +219,11 @@
 				                    </div>  
 		                    </div> 
 		                </div>
+		                <div id="tab7tab" class="tab-pane fade border row">                     
+                            <div style="padding-left: 20px">
+                              <iframe src="/home.html" height="700px" width="99%"></iframe>
+                            </div>
+                        </div>
                         <div id="tab2tab" class="tab-pane fade border row">                     
                             <div style="padding-left: 20px">
                               <iframe src="http://127.0.0.1:8887" height="700px" width="99%"></iframe>
