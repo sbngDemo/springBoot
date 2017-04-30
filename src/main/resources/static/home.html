@@ -1,7 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> 
+<html>
 <head>
- 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Dashboard</title>
+		<!-- css -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
@@ -10,91 +12,177 @@
 	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
-  
+
 </head>
 <body >
-<div class="row">
+	<div  class="container-fluid">
+		<div class="row">
+			  <div class="dashboard-nav">
+			    <nav class="navbar">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						</button>
+					</div>
 
-	<div class="col-md-3">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+						<li>
+							<a href="#takeControl">Notification: <label id="totalNotifications">0</label></a>
+						</li>
+						<li class="dropdown">
+					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Name
+					        <span class="caret"></span></a>
+					        <ul class="dropdown-menu">
+					          <li><a href="#">My account</a></li>
+					          <li><a href="#">logout</a></li>
+					        </ul>
+					     </li>
+						<li class="dropdown">
+					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">History
+					        <span class="caret"></span></a>
+					        <ul class="dropdown-menu">
+					          <li><a href="#">User History</a></li>
+					          <li><a href="#">Project History</a></li>		
+					        </ul>
+					     </li>
+						<li>
+							<a href="#betterDecisions">Admin</a>
+						</li>
+						<li>
+							<a href="#pricing">Community</a>
+						</li>
+						<li class="dropdown">
+					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Help
+					        <span class="caret"></span></a>
+					        <ul class="dropdown-menu pull-right">
+					          <li><a href="#">Help Content</a></li>
+					          <li><a href="#">Help on this Page</a></li>
+	       			        </ul>
+					     </li>
+						</ul>
+					</div>
+
+				</nav>
+			  </div>
+		</div>
+
+
+       <div class="body-wrapper">
+			<div class="row">
+		       <div class="col-sd-12">
+				<!-- <nav class="navbar navbar-default">
+				  <div class="container-fluid" style="height:100%; background-color: #C2C2C2; ">
+					
+					<ul class="nav navbar-nav" style="width: 100%  ">
+					  <li style="width: 14.28% "> <a  href="/dashboard.html" style="color: #0066cc; font-weight: bold;">Dashboard</a> </li>
+		                <li style="width: 14.28%;" class="active"> <a href="/home.html" style=" background-color: white;font-weight: bold; " >Home</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab2tab" style="color: #0066cc; font-weight: bold;">Risk Analysis</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab3tab" style="color: #0066cc; font-weight: bold;">Data De-Identification</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab4tab" style="color: #0066cc; font-weight: bold;">Doc De-Identification</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab5tab" style="color: #0066cc; font-weight: bold;">Anonymization</a> </li>
+		                <li style="width: 14.28%"> <a  href="/report.html" style="color: #0066cc; font-weight: bold;">Reports</a> </li>
+					</ul>
+				  </div>
+				</nav>  -->
+			   
+			    <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
+		                <li style="width: 14.28%"> <a href="/dashboard.html">Dashboard</a> </li>
+		                <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="/home.html">Home</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab2tab">Risk Analysis</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab3tab">Data De-Identification</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab4tab">Doc De-Identification</a> </li>
+		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab5tab">Anonymization</a> </li>
+		                <li style="width: 14.28%" > <a href="/report.html">Reports</a> </li>
+		            
+		            </ul>
+		          
+		            <div class="tab-content row active">
+		                <div id="tab7tab" class="tab-pane fade in active border row">
+				                <div class="col-md-3">
 				                    
-             <!-- heading -->
-             <div class="row">
-                 <div class="col-md-12">
-                     <h1 class="pull-left notif-head">Notifications</h1>
-                     <i class="fa fa-bell-o notification"></i>
-                 </div>
-             </div>
-
-             <div class="row">
-                 <div class="col-md-12">
-                   <div style="background-color: white;direction: ltl; height: 800px; overflow-x: hidden;">
-                   
-             <!-- ------------------------------------------------- -->
-                         <div ng-app="myApp" ng-controller="filterCtrl" style="padding-left: 10px">
-                             <table st-table="displayCollection" st-safe-src="rowCollection" st-set-filter="myStrictFilter" class="table table-striped">
-                                 <thead>
-                                     <!-- <tr >
-                                         <th st-sort="status"></th>
-                                         <th st-sort="notification"></th>
-                                         <th st-sort="timestamp"></th>
-                                         <th st-sort="action"></th>
-                                     </tr> -->
-                                     <tr>
-                                     <th  st-ratio="10" align="right"></th>
-                                         <th colspan="4"  st-ratio="80"
-                                             class="form-group text-center search-container" >
-                                          <input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />                                                       
-
-                                         </th>
-                                         <th  colspan="2" st-ratio="10" align="right"></th>
-                                     </tr>
-                                     <tr>
-                                         <th  st-ratio="10" align="right"></th>
-                                         <th colspan="2" st-ratio="50" >
-                                         <select st-input-event="change" st-search="status">
-                                                 <option value=""> Show Only </option>
-                                                 <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
-                                         </select></th>
-                                         <th  st-ratio="15" align="right"></th>
-                                         <th  colspan="2" st-ratio="35" align="right">
-                                             <select st-input-event="change">
-                                              <option>Bulk actions</option>
-                                              <option>Mark Unread</option>
-                                              <option>Mark Read</option>
-                                             </select>
-                                         </th>
-                                         <th  st-ratio="5" align="right"></th>
-                                         
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-                                     <tr ng-repeat="row in displayCollection">
-                                         <td st-ratio="10">{{$index+1}}</td>
-                                         <!-- <td st-ratio="10" class="fa fa-square {{ row.status | lowercase}}-notification">&nbsp</td> -->
-                                         <td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
-                                         <td st-ratio="50">{{row.notification}}</td>
-                                         <td st-ratio="20">{{row.timestamp}}</td>
-                                         <td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-                                         <td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
-                                     </tr>
-                                 </tbody>
-                                 <!-- <tfoot>
-                                     <tr>
-                                         <td colspan="5" class="text-center">
-                                             <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="3"></div>
-                                         </td>
-                                     </tr>
-                                 </tfoot> -->
-                             </table>
-                         </div>
-<!-- ------------------------------------------------- -->
-                       
-                   </div>    
-                 </div>
-             </div>
-
-         </div> 
-                            <div class="col-md-9" style="padding-left: 2px;height:850px; background-color:white;">
+				                    <!-- heading -->
+				                    <div class="row">
+				                        <div class="col-md-12">
+				                            <h1 class="pull-left notif-head">Notifications</h1>
+				                            <i class="fa fa-bell-o notification"></i>
+				                        </div>
+				                    </div>
+				
+				                    <div class="row">
+				                        <div class="col-md-12">
+				                          <div style="background-color: white;direction: ltl; height: 650px; overflow-x: hidden;">
+				                          
+				                    <!-- ------------------------------------------------- -->
+				                                <div ng-app="myApp" ng-controller="filterCtrl" style="padding-left: 10px">
+				                                    <table st-table="displayCollection" st-safe-src="rowCollection" st-set-filter="myStrictFilter" class="table table-striped">
+				                                        <thead>
+				                                            <!-- <tr >
+				                                                <th st-sort="status"></th>
+				                                                <th st-sort="notification"></th>
+				                                                <th st-sort="timestamp"></th>
+				                                                <th st-sort="action"></th>
+				                                            </tr> -->
+				                                            <tr>
+				                                            <th  st-ratio="10" align="right"></th>
+				                                                <th colspan="4"  st-ratio="80"
+				                                                    class="form-group text-center search-container" >
+				                                                 <input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />                                                       
+				    
+				                                                </th>
+				                                                <th  colspan="2" st-ratio="10" align="right"></th>
+				                                            </tr>
+				                                            <tr>
+				                                                <th  st-ratio="10" align="right"></th>
+				                                                <th colspan="2" st-ratio="50" >
+				                                                <select st-input-event="change" st-search="status">
+				                                                        <option value=""> Show Only </option>
+				                                                        <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
+				                                                </select></th>
+				                                                <th  st-ratio="10" align="right"></th>
+				                                                <th  colspan="2" st-ratio="35" align="right">
+				                                                    <select st-input-event="change">
+					                                                    <option>Bulk actions</option>
+					                                                    <option>Mark Unread</option>
+					                                                    <option>Mark Read</option>
+				                                                    </select>
+				                                                </th>
+				                                                <th  st-ratio="10" align="right"></th>
+				                                                
+				                                            </tr>
+				                                        </thead>
+				                                        <tbody>
+				                                            <tr ng-repeat="row in displayCollection">
+				                                                <td st-ratio="10">{{$index+1}}</td>
+				                                                <!-- <td st-ratio="10" class="fa fa-square {{ row.status | lowercase}}-notification">&nbsp</td> -->
+				                                                <td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
+				                                                <td st-ratio="50">{{row.notification}}</td>
+				                                                <td st-ratio="20">{{row.timestamp}}</td>
+				                                                <td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
+				                                                <td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
+				                                            </tr>
+				                                        </tbody>
+				                                        <!-- <tfoot>
+				                                            <tr>
+				                                                <td colspan="5" class="text-center">
+				                                                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="3"></div>
+				                                                </td>
+				                                            </tr>
+				                                        </tfoot> -->
+				                                    </table>
+				                                </div>
+				<!-- ------------------------------------------------- -->
+				                              
+				                          </div>    
+				                        </div>
+				                    </div>
+				
+				                </div>  
+				
+							 <div class="col-md-9" style="padding-left: 2px;height:850px; background-color:white;">
                                   <div class="row" >
                                     <div class="col-sm-12">
                                         <p><img src="Images/welcome.png" alt="Lights" style="height:100px;width:100%"></p>  
@@ -125,7 +213,7 @@
                                   </div>
                                    <div class="row" style="margin-top:2%; line-height: 6;height:170px;">
                                     <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:170px;">
-                                        <div class="figcaption"><a href="#" > Reports </a></div>
+                                        <div class="figcaption"><a href="/report.html" > Reports </a></div>
                                      
                                     </div>
                                     
@@ -139,11 +227,57 @@
                                   </div>
                               
                             </div>  
-</div>  
-</body>
+		                </div>
+		                <div id="tab1tab" class="tab-pane fade border row" ng-app="">                     
+                            <!-- <div style="padding-left: 20px">
+                              <iframe src="/home.html" height="700px" width="99%"></iframe>
+                       </div> -->
+                            
+                            <div  ng-include="'home.html"></div>
+                            
+                        </div>
+                        <div id="tab2tab" class="tab-pane fade border row">                     
+                            <div style="padding-left: 20px">
+                              <iframe src="http://127.0.0.1:8887" height="700px" width="99%"></iframe> 
+                            </div>
+                        </div>
+                        <div id="tab3tab" class="tab-pane fade border row">
+                            <div style="padding-left: 20px">
+                             <iframe src="http://127.0.0.1:8888" height="700px" width="100%"></iframe> 
+                            </div>
+                        </div>
+                        <div id="tab4tab" class="tab-pane fade border row">
+                            <div style="padding-left: 20px">
+                              <iframe src="http://127.0.0.1:8889" height="700px" width="100%"></iframe> 
+                            </div>
+                        </div>
+		                <div id="tab5tab" class="tab-pane fade border row">
+                            <div style="padding-left: 20px">
+                              <iframe src="https://gallery.shinyapps.io/087-crandash/" height="700px" width="99%"></iframe> 
+                            </div>
+                        </div>
+                        <div id="tab6tab" class="tab-pane fade border row">
+                            <div style="padding-left: 20px">
+                              <iframe src="https://gallery.shinyapps.io/086-bus-dashboard/" height="700px" width="100%"></iframe>
+                            </div>
+                        </div>
+		            </div>
+		           
+		        </div>			
+
+        </div>
+    </div>
+ 
+</div> <!-- container-fluid -->
  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
  <script src="js/angular-datatables.min.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/smart-table.js"></script>
 <script src="js/utils.js"></script>
+<script>
+
+/* $('#tab7tab').load('/home.html'); */
+</script>
+
+</body>
 </html>
