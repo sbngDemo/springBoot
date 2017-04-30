@@ -72,149 +72,20 @@
             <div class="row">
                <div class="col-sd-12">
                     <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
-                        <li style="width: 16.66%"> <a data-toggle="tab" href="#tab1tab">Dashboard</a> </li>
-                        <li style="width: 16.66%"> <a data-toggle="tab" href="#tab2tab">Risk Analysis</a> </li>
-                        <li style="width: 16.66%" class="active"> <a data-toggle="tab" href="#tab3tab">Data De-Identification</a> </li>
-                        <li style="width: 16.66%"> <a data-toggle="tab" href="#tab4tab">Doc De-Identification</a> </li>
-                        <li style="width: 16.66%"> <a data-toggle="tab" href="#tab5tab">Anonymization</a> </li>
-                        <li style="width: 16.66%"> <a data-toggle="tab" href="#tab6tab">Reports</a> </li>
+                        <li style="width: 14.28%"> <a href="dashboard.html">Dashboard</a> </li>
+                        <li style="width: 14.28%"><a href="home.html">Activities</a></li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab2tab">Risk Analysis</a> </li>
+                        <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="#tab3tab">Data De-Identification</a> </li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab4tab">Doc De-Identification</a> </li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab5tab">Anonymization</a> </li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab6tab">Reports</a> </li>
                     
                     </ul>
                     <div class="tab-content row active">
                         <div id="tab1tab" class="tab-pane fade border row">
-                                <div class="col-md-3">
-                                    
-                                    <!-- heading -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h1 class="pull-left notif-head">Notifications</h1>
-                                            <i class="fa fa-bell-o notification"></i>
-                                        </div>
-                                    </div>
-                
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                          <div style="background-color: white;direction: ltl; height: 650px; overflow-x: hidden;">
-                                          
-                                    <!-- ------------------------------------------------- -->
-                                                <div ng-app="myApp" ng-controller="filterCtrl" style="padding-left: 10px">
-                                                    <table st-table="displayCollection" st-safe-src="rowCollection" st-set-filter="myStrictFilter" class="table table-striped">
-                                                        <thead>
-                                                            <!-- <tr >
-                                                                <th st-sort="status"></th>
-                                                                <th st-sort="notification"></th>
-                                                                <th st-sort="timestamp"></th>
-                                                                <th st-sort="action"></th>
-                                                            </tr> -->
-                                                            <tr>
-                                                            <th  st-ratio="10" align="right"></th>
-                                                                <th colspan="4"  st-ratio="80"
-                                                                    class="form-group text-center search-container" >
-                                                                 <input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />                                                       
-                    
-                                                                </th>
-                                                                <th  colspan="2" st-ratio="10" align="right"></th>
-                                                            </tr>
-                                                            <tr>
-                                                                <th  st-ratio="10" align="right"></th>
-                                                                <th colspan="2" st-ratio="50" >
-                                                                <select st-input-event="change" st-search="status">
-                                                                        <option value=""> Show Only </option>
-                                                                        <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
-                                                                </select></th>
-                                                                <th  st-ratio="10" align="right"></th>
-                                                                <th  colspan="2" st-ratio="35" align="right">
-                                                                    <select st-input-event="change">
-                                                                        <option>Bulk actions</option>
-                                                                        <option>Mark Unread</option>
-                                                                        <option>Mark Read</option>
-                                                                    </select>
-                                                                </th>
-                                                                <th  st-ratio="10" align="right"></th>
-                                                                
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr ng-repeat="row in displayCollection">
-                                                                <td st-ratio="10">{{$index+1}}</td>
-                                                                <!-- <td st-ratio="10" class="fa fa-square {{ row.status | lowercase}}-notification">&nbsp</td> -->
-                                                                <td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
-                                                                <td st-ratio="50">{{row.notification}}</td>
-                                                                <td st-ratio="20">{{row.timestamp}}</td>
-                                                                <td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-                                                                <td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
-                                                            </tr>
-                                                        </tbody>
-                                                        <!-- <tfoot>
-                                                            <tr>
-                                                                <td colspan="5" class="text-center">
-                                                                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="3"></div>
-                                                                </td>
-                                                            </tr>
-                                                        </tfoot> -->
-                                                    </table>
-                                                </div>
-                <!-- ------------------------------------------------- -->
-                                              
-                                          </div>    
-                                        </div>
-                                    </div>
-                
-                                </div>  
-                
-                                <div class="col-md-9" style="padding-left: 5px;">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h1 class="pull-left">Manage <small style="font-size: 26px;">Projects</small></h1>
-                
-                                            <div class="pull-right" style="padding-right: 20px"><a href="#"><img width="50" src="images/add-button.png" style="padding-top: 10px;"></a></span>
-                                            </div>
-                                            <h1 class="pull-right" style="padding-right: 10px">
-                                                <small style="font-size: 18px;">
-                                                     <select>
-                                                         <option>Show View</option>
-                                                         <option onClick="selView1('1','2');">View1</option>
-                                                         <option onClick="selView2('4','5');">View2</option>
-                                                         <option onClick="selView3('2','3');">View3</option>
-                                                     </select>
-                                                 </small>
-                                            </h1>
-                                        </div>
-                                    </div>
-                                    <div id="App2" ng-app="app" ng-controller="projectDesciptions" class="row" style="background-color: white;direction: ltl; height: 650px; overflow: auto;padding-right: 30px;padding-left: 1px;">
-                                       <table id="table1" width="100%" class="table table-striped table-bordered" datatable="ng" id="example" dt-options="vm.dtOptions" cellspacing="0">
-                                          <thead style="background-color: lightgrey;">
-                                             <tr>
-                                                <th id="th1">Project Name</th>
-                                                <th id="th2">Project ID</th>
-                                                <th id="th3">Created By:</th>
-                                                <th id="th4">Project Status</th>
-                                                <th id="th5">Date Initiation</th>
-                                                <th id="th6">Date Completion</th>
-                                                <th id="th7">Action</th>
-                                             </tr>
-                                          </thead>            
-                                        
-                                          <tbody>
-                                                 <tr ng-repeat="project in projDetails">
-                                                     <td>{{project.projectName}}</td>
-                                                     <td>{{project.projectId}}</td>
-                                                     <td>{{project.createdBy}}</td>
-                                                     <td><span class="{{ project.projectStatus | lowercase}}">{{project.projectStatus}}</span></td>
-                                                     <td>{{project.dateInitiation}}</td>
-                                                     <td>{{project.dateCompletion}}</td>
-                                                     <td class="actions">
-                                                         <a href="deid.html"><i class="fa fa-eye"></i></a>
-                                                         <i class="fa fa-pencil"></i>
-                                                         <i class="fa fa-times"></i>
-                                                     </td>
-                                                 </tr>
-                                            </tbody>
-                                          
-                                        </table>    
-                                    </div>  
-                            </div> 
                         </div>
+                        <div id="activities" class="tab-pane fade border row">
+                        </div>                        
                         <div id="tab2tab" class="tab-pane fade border row">                     
                             <div style="padding-left: 20px">
                               <iframe src="http://127.0.0.1:8887" height="700px" width="99%"></iframe>
