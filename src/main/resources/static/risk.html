@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-    <title>Data De-Identification</title>
+    <title>Risk Analysis</title>
         <!-- css -->
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -74,51 +74,25 @@
                     <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
                         <li style="width: 14.28%"> <a href="dashboard.html">Dashboard</a> </li>
                         <li style="width: 14.28%"><a href="home.html">Home</a></li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab2tab">Risk Analysis</a> </li>
-                        <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="#tab3tab">Data De-Identification</a> </li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab4tab">Doc De-Identification</a> </li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab5tab">Anonymization</a> </li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="#tab6tab">Reports</a> </li>
+                        <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="#currenttab">Risk Analysis</a> </li>
+                        <li style="width: 14.28%"> <a href="data-deid.html">Data De-Identification</a> </li>
+                        <li style="width: 14.28%"> <a href="doc-deid.html">Doc De-Identification</a> </li>
+                        <li style="width: 14.28%"> <a href="anonymization.html">Anonymization</a> </li>
+                        <li style="width: 14.28%"> <a href="report.html">Reports</a> </li>
                     
                     </ul>
                     <div class="tab-content row active">
-                        <div id="tab1tab" class="tab-pane fade border row">
-                        </div>
-                        <div id="activities" class="tab-pane fade border row">
-                        </div>                        
-                        <div id="tab2tab" class="tab-pane fade border row">                     
+                        <div id="currenttab" class="tab-pane fade in active border row">
                             <div style="padding-left: 20px">
-                              <iframe src="http://127.0.0.1:8887" height="700px" width="99%"></iframe>
+                              <iframe src="http://127.0.0.1:8887" height="700px" width="100%"></iframe>
                             </div>
-                        </div>
-                        <div id="tab3tab" class="tab-pane fade in active border row">
-                            <div style="padding-left: 20px">
-                              <iframe src="http://127.0.0.1:8888" height="700px" width="100%"></iframe>
-                            </div>
-                        </div>
-                        <div id="tab4tab" class="tab-pane fade border row">
-                            <div style="padding-left: 20px">
-                              <iframe src="http://127.0.0.1:8889" height="700px" width="100%"></iframe>
-                            </div>
-                        </div>
-                        <div id="tab5tab" class="tab-pane fade border row">
-                            <div style="padding-left: 20px">
-                              <iframe src="https://gallery.shinyapps.io/087-crandash/" height="700px" width="99%"></iframe>
-                            </div>
-                        </div>
-                        <div id="tab6tab" class="tab-pane fade border row">
-                            <div style="padding-left: 20px">
-                              <iframe src="https://gallery.shinyapps.io/086-bus-dashboard/" height="700px" width="100%"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>          
-
+                        </div> 
+                    </div>                   
+                </div>
+            </div>
         </div>
-    </div>
  
-</div> <!-- container-fluid -->
+    </div> <!-- container-fluid -->
  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
  <script src="js/angular-datatables.min.js"></script>
 <script src="js/controller.js"></script>
