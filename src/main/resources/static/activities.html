@@ -157,13 +157,12 @@
 				                                        </thead>
 				                                        <tbody>
 				                                            <tr ng-repeat="row in displayCollection">
-				                                                <td st-ratio="10">{{$index+1}}</td>
-				                                                <!-- <td st-ratio="10" class="fa fa-square {{ row.status | lowercase}}-notification">&nbsp</td> -->
-				                                                <td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
-				                                                <td st-ratio="50">{{row.notification}}</td>
-				                                                <td st-ratio="20">{{row.timestamp}}</td>
-				                                                <td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-				                                                <td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
+                                                                <td st-ratio="10" style="font-weight: bold;">{{$index+1}}</td>
+                                                                <td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
+                                                                <td st-ratio="50" style="font-weight: bold;">{{row.notification}}</td>
+                                                                <td st-ratio="20" style="font-weight: bold;">{{row.timestamp}}</td>
+                                                                <td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
+                                                                <td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
 				                                            </tr>
 				                                        </tbody>
 				                                        <!-- <tfoot>
