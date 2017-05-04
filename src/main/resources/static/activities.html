@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Activity Menu</title>
 		<!-- css -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -79,7 +79,7 @@
 					
 					<ul class="nav navbar-nav" style="width: 100%  ">
 					  <li style="width: 14.28% "> <a  href="/dashboard.html" style="color: #0066cc; font-weight: bold;">Dashboard</a> </li>
-		                <li style="width: 14.28%;" class="active"> <a href="/home.html" style=" background-color: white;font-weight: bold; " >Home</a> </li>
+		                <li style="width: 14.28%;" class="active"> <a href="/activities.html" style=" background-color: white;font-weight: bold; " >Home</a> </li>
 		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab2tab" style="color: #0066cc; font-weight: bold;">Risk Analysis</a> </li>
 		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab3tab" style="color: #0066cc; font-weight: bold;">Data De-Identification</a> </li>
 		                <li style="width: 14.28%"> <a data-toggle="tab" href="#tab4tab" style="color: #0066cc; font-weight: bold;">Doc De-Identification</a> </li>
@@ -114,7 +114,7 @@
 				
 				                    <div class="row">
 				                        <div class="col-md-12">
-				                          <div style="background-color: white;direction: ltl; height: 650px; overflow-x: hidden;">
+				                          <div style="background-color: white;direction: ltl; height: 90vh; overflow-x: hidden;">
 				                          
 				                    <!-- ------------------------------------------------- -->
 				                                <div ng-app="myApp" ng-controller="filterCtrl" style="padding-left: 10px">
@@ -140,7 +140,7 @@
 				                                                <th  st-ratio="10" align="right"></th>
 				                                                <th colspan="2" st-ratio="50" >
 				                                                <select st-input-event="change" st-search="status">
-				                                                        <option value=""> Show Only </option>
+				                                                        <option value=""> Show All </option>
 				                                                        <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
 				                                                </select></th>
 				                                                <th  st-ratio="10" align="right"></th>
@@ -183,7 +183,7 @@
 				
 				                </div>  
 				
-							 <div class="col-md-9" style="padding-left: 2px;height:730px; background-color:white;">
+							 <div class="col-md-9" style="padding-left: 2px;height:90vh; background-color:white;">
                                   <div class="row" >
                                     <div class="col-sm-12">
                                         <p><img src="Images/welcome.png" alt="Lights" style="height:100px;width:100%"></p>  
@@ -230,7 +230,7 @@
 		              <!--    
 		                  <div id="tab1tab" class="tab-pane fade border row" ng-app="">                    
                           
-                            <div  ng-include="'home.html"></div>
+                            <div  ng-include="'activities.html"></div>
                             
                         </div>
                       -->
@@ -249,7 +249,7 @@
 <script src="js/utils.js"></script>
 <script>
 
-/* $('#tab7tab').load('/home.html'); */
+/* $('#tab7tab').load('/activities.html'); */
 </script>
 
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Report</title>
 		<!-- css -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -76,7 +76,7 @@
 		       <div class="col-sd-12">
 		        <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
                         <li style="width: 14.28%"> <a href="dashboard.html">Dashboard</a> </li>
-                        <li style="width: 14.28%"> <a href="home.html">Activity Menu</a></li>
+                        <li style="width: 14.28%"> <a href="activities.html">Activity Menu</a></li>
                         <li style="width: 14.28%"> <a href="risk.html">Risk Analysis</a> </li>
                         <li style="width: 14.28%"> <a href="data-deid.html">Data De-Identification</a> </li>
                         <li style="width: 14.28%"> <a href="doc-deid.html">Doc De-Identification</a> </li>
@@ -100,7 +100,7 @@
 				
 				                    <div ng-app="myApp" class="row">
 				                        <div class="col-md-12">
-				                          <div style="background-color: white;direction: ltl; height: 650px; overflow-x: hidden;">
+				                          <div style="background-color: white;direction: ltl; height: 85vh; overflow-x: hidden;">
 				                          
 				                    <!-- ------------------------------------------------- -->
 				                                <div  ng-controller="filterCtrl" style="padding-left: 10px">
@@ -125,7 +125,7 @@
 				                                                <th  st-ratio="10" align="right"></th>
 				                                                <th colspan="2" st-ratio="50" >
 				                                                <select st-input-event="change" st-search="status">
-				                                                        <option value=""> Show Only </option>
+				                                                        <option value=""> Show All </option>
 				                                                        <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
 				                                                </select></th>
 				                                                <th  st-ratio="10" align="right"></th>
