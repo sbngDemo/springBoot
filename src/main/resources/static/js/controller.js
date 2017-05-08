@@ -6,9 +6,9 @@ angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, 
 	$scope.loading = true;
 	
 	$http.get("/notifications/").then(function(response) {
+		$scope.loading = true;
 		$scope.rowCollection = response.data.notifications;
 		$scope.loading = false;
-		
 		document.getElementById("totalNotifications").innerHTML= $scope.rowCollection.length;
 		
 
@@ -85,25 +85,5 @@ angular.module('myApp.projectDesciptions',[]).controller('projectDesciptions', f
 });
 
   
-//angular.bootstrap(document.getElementById("App1"), ['myApp']);
 
-/*angular.module('app', ['app.projectDesciptions','datatables']);
-
-angular.module('app.projectDesciptions',[]).controller('projectDesciptions', function($scope,DTOptionsBuilder, DTColumnBuilder, $http) {
-	$scope.loading = true;
-	 $http.get("/projectDetails/").then(function (response) {
-			$scope.loading = true;
-	      $scope.projDetails = response.data.projectDetails;
-	  	$scope.loading = false;
-	  });
-	
-			  
-	$scope.vm = {};
-
-	$scope.vm.dtOptions = DTOptionsBuilder.newOptions()
-	  .withOption('order', [0, 'asc']);
-});
-
-
-angular.bootstrap(document.getElementById("App2"), ['app']);*/
 

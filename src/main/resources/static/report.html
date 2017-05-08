@@ -103,60 +103,47 @@
 				                          <div style="background-color: white;direction: ltl; height: 85vh; overflow-x: hidden;">
 				                          
 				                    <!-- ------------------------------------------------- -->
-				                                <div  ng-controller="filterCtrl" style="padding-left: 10px">
-				                                    <table st-table="displayCollection" st-safe-src="rowCollection" class="table table-striped">
-				                                        <thead>
-				                                            <!-- <tr >
-				                                                <th st-sort="status"></th>
-				                                                <th st-sort="notification"></th>
-				                                                <th st-sort="timestamp"></th>
-				                                                <th st-sort="action"></th>
-				                                            </tr> -->
-				                                            <tr>
-				                                            <th  st-ratio="10" align="right"></th>
-				                                                <th colspan="4"  st-ratio="80"
-				                                                    class="form-group text-center search-container" >
-				                                                 <input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />                                                       
-				    
+				                                <div class="table-responsive"  ng-controller="filterCtrl" style="padding-left: 10px">
+				                                    <table st-table="displayCollection" st-safe-src="rowCollection"  class="table table-striped">
+				                                        <thead>				                                           
+				                                            <tr>				                                        
+				                                                <th colspan="2" st-ratio="100"  class="form-group text-center search-container" >
+				                                                	<input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />  
 				                                                </th>
-				                                                <th  colspan="2" st-ratio="10" align="right"></th>
 				                                            </tr>
 				                                            <tr>
-				                                                <th  st-ratio="10" align="right"></th>
-				                                                <th colspan="2" st-ratio="50" >
-				                                                <select st-input-event="change" st-search="status">
-				                                                        <option value=""> Show All </option>
-				                                                        <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
-				                                                </select></th>
-				                                                <th  st-ratio="10" align="right"></th>
-				                                                <th  colspan="2" st-ratio="35" align="right">
+				                                                <th st-ratio="50"  class="text-center">
+					                                                <select st-input-event="change" st-search="status">
+					                                                        <option value=""> Show All </option>
+					                                                        <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
+					                                                </select>
+				                                                </th>				                                                
+				                                                <th  align="right" st-ratio="50">
 				                                                    <select st-input-event="change">
 					                                                    <option>Bulk actions</option>
 					                                                    <option>Mark Unread</option>
 					                                                    <option>Mark Read</option>
 				                                                    </select>
 				                                                </th>
-				                                                <th  st-ratio="10" align="right"></th>
-				                                                
 				                                            </tr>
 				                                        </thead>
 				                                        <tbody>
-				                                            <tr ng-repeat="row in displayCollection">
-                                                                <td st-ratio="10" style="font-weight: bold;">{{$index+1}}</td>
-                                                                <td st-ratio="10"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
-                                                                <td st-ratio="50" style="font-weight: bold;">{{row.notification}}</td>
-                                                                <td st-ratio="20" style="font-weight: bold;">{{row.timestamp}}</td>
-                                                                <td st-ratio="5" > <span ng-if="'Today' ==  row.timestamp" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-                                                                <td st-ratio="5"><input type="checkbox" name="">&nbsp;<td>
+				                                            <tr  >
+				                                            	<td colspan="2"  st-ratio="100">
+					                                            	<table class="table table-striped" ng-repeat="row in displayCollection" style="margin-bottom: 0px; padding: 0px">
+						                                            	<tr class="{{row.timestamp}}">				                                            	
+							                                            	<td width="5%" >{{$index+1}}</td>
+							                                                <td width="10%"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
+							                                                <td width="40%">{{row.notification}}</td>
+							                                                <td width="25%">{{row.timestamp}}</td>
+							                                                <td width="10%"><span ng-if="'High' ==  row.status" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
+							                                                <td width="10%"><input type="checkbox" name="">&nbsp;<td>
+						                                            	</tr>
+					                                            	</table> 
+				                                            	</td>
 				                                            </tr>
 				                                        </tbody>
-				                                        <!-- <tfoot>
-				                                            <tr>
-				                                                <td colspan="5" class="text-center">
-				                                                    <div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="3"></div>
-				                                                </td>
-				                                            </tr>
-				                                        </tfoot> -->
+				                                       
 				                                    </table>
 				                                </div>
 				                        <!-- ------------------------------------------------- -->
@@ -202,6 +189,9 @@
 <script src="js/controller.js"></script>
 <script src="js/smart-table.js"></script>
 <script src="js/utils.js"></script>
+<script src="js/lrDragNDrop.js"></script>
+
+
 <script type="text/javascript">
 
 
