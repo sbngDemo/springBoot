@@ -18,6 +18,10 @@ angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, 
 	
 	$scope.predicates = [ 'status', 'notification', 'timeStamp'];
 	$scope.selectedPredicate = $scope.predicates[0];
+	
+	$scope.myFunc = function(){
+		$scope.bulkAct="";
+	};
 });
 
 app.filter('myStrictFilter', function($filter) {

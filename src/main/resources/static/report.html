@@ -101,14 +101,14 @@
 				
 				                    <div ng-app="myApp" class="row">
 				                        <div class="col-md-12">
-				                          <div style="background-color: white;direction: ltl; height: 85vh; overflow-x: hidden;">
+				                          <div style="background-color: white;direction: ltl; height: 85vh; overflow-y: scroll; overflow-x: scroll;" >
 				                          
 				                    <!-- ------------------------------------------------- -->
 				                                <div class="table-responsive"  ng-controller="filterCtrl" style="padding-left: 10px">
 				                                    <table st-table="displayCollection" st-safe-src="rowCollection"  class="table table-striped">
 				                                        <thead>				                                           
 				                                            <tr>				                                        
-				                                                <th colspan="2" st-ratio="100"  class="form-group text-center search-container" >
+				                                                <th colspan="2" st-ratio="100"  class="form-group search-container" style="padding-left: 7%" >
 				                                                	<input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />  
 				                                                </th>
 				                                            </tr>
@@ -120,10 +120,10 @@
 					                                                </select>
 				                                                </th>				                                                
 				                                                <th  align="right" st-ratio="50">
-                                                                    <select id="bulkAct" st-input-event="change">
-                                                                        <option value="bulkActions">Bulk actions</option>
-                                                                        <option onClick="selBulkActions(document.reportform);">Mark Unread</option>
-                                                                        <option onClick="selBulkActions(document.reportform);">Mark Read</option>
+                                                                    <select ng-model="bulkAct" ng-change="myFunc()">
+                                                                        <option value="">Bulk actions</option>
+                                                                        <option value="markUnread">Mark Unread</option>
+                                                                        <option value="markRead">Mark Read</option>
                                                                     </select>
 				                                                </th>
 				                                            </tr>
