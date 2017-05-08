@@ -17,7 +17,7 @@
 <body ng-app="myApp">
 	<form name="myform" method="" action="">
 	<div  class="container-fluid">
-		<div class="row fill">
+		<div class="row ">
 			  <div class="dashboard-nav">
 			    <nav class="navbar">
 					<div class="navbar-header">
@@ -72,7 +72,7 @@
 		</div>
 
 
-       <div class="body-wrapper" >
+       <div class="body-wrapper fill" >
 			<div class="row">
 		       <div class="col-sd-12">
 						   
@@ -87,7 +87,7 @@
 		            
 		            </ul>
 		          
-		            <div class="tab-content row active">
+		            <div class="tab-content row active" id="map">
 		                <div id="currenttab" class="tab-pane fade in active border row">
 				                <div class="col-md-3">
 				                    
@@ -155,49 +155,48 @@
 				
 				                </div>  
 				
-							 <div class="col-md-9 container fill" style="padding-left: 2px;">  
-							<div id="map">                        
+							 <div class="col-md-9 container" style="padding-left: 2px; ">  						                  
                                   <div class="row" >
                                     <div class="col-md-12">
                                         <p><img src="Images/welcome.png" alt="Lights" style="height:100px;width:100%"></p>  
                                     </div>    
                                   </div>    
-                                  <div class="row" >
+                                  <div class="row" id="map" >
                                     <div class="col-md-11">
                                         
-	                                  <div class="row"  style="margin-top:2%; line-height: 7;height:170px; ">
-	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:170px;">
-		                                   <a href="risk.html" style="background-color: rgb(255, 136, 71); width: 300px; height: 200px; color: white;text-align:left; font-size: 20px; font-weight: bold; font-style: normal;font-family: Arial;">Risk Analysis</a>
+	                                  <div class="row"  style="margin-top:2%; line-height: 7;height:20%; ">
+	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:20%;">
+		                                   <a href="risk.html" style="background-color: rgb(255, 136, 71); color: white;text-align:left; font-weight: bold; font-style: normal;font-family: Arial;">Risk Analysis</a>
 	                                    </div>
 	                                    
-	                                    <div class="col-sm-5 col-md-offset-1 jumbotron" style="height:170px;padding-top: 2px;">
-	                                        <a href="anonymization.html" style="background-color: rgb(255, 136, 71); width: 300px; height: 200px; color: white;text-align:left; font-size: 20px; font-weight: bold; font-style: normal;font-family: Arial;">Anonymization</a> <span style="padding-left: 10%"><img src="Images/lock_icon.png" alt="Lights" style="width:30%"></span>
+	                                    <div class="col-sm-5 col-md-offset-1 jumbotron" style="height:20%;padding-top: 2px;">
+	                                        <a href="anonymization.html" style="background-color: rgb(255, 136, 71);color: white;text-align:left; font-weight: bold; font-style: normal;font-family: Arial;">Anonymization</a> <span style="padding-left: 10%"><img src="Images/lock_icon.png" alt="Lights" style="width:30%"></span>
 	                                    </div>
 	                                  </div>
-	                                   <div class="row" style="margin-top:2%; line-height: 6;height:170px;">
-	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:170px;" >
-	                                        <a href="data-deid.html" style="background-color: rgb(70, 136, 71); width: 300px; height: 200px; color: white;text-align:left; font-size: 20px; font-weight: bold; font-style: normal;font-family: Arial;">Data De-ID</a>
+	                                   <div class="row" style="margin-top:2%; line-height: 6;height:20%;">
+	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:20%;" >
+	                                        <a href="data-deid.html" style="background-color: rgb(70, 136, 71); color: white;text-align:left; font-weight: bold; font-style: normal;font-family: Arial;">Data De-ID</a>
 	                                    </div>
 	                                    
-	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:170px;">
-	                                        <a href="doc-deid.html" style="background-color: rgb(70, 136, 71); width: 300px; height: 200px; color: white;text-align:left; font-size: 20px; font-weight: bold; font-style: normal;font-family: Arial;">Doc De-ID</a>
+	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:20%;">
+	                                        <a href="doc-deid.html" style="background-color: rgb(70, 136, 71);color: white;text-align:left; font-weight: bold; font-style: normal;font-family: Arial;">Doc De-ID</a>
 	                                    </div>
 	                                  </div>
-	                                   <div class="row" style="margin-top:2%; line-height: 6;height:170px;">
-	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:170px;">
-	                                        <a href="report.html" style="background-color: rgb(248, 148, 6); width: 300px; height: 200px; color: white;text-align:left; font-size: 20px; font-weight: bold; font-style: normal;font-family: Arial;"> Reports </a>
+	                                   <div class="row" style="margin-top:2%; line-height: 6;height:20%;">
+	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:20%;">
+	                                        <a href="report.html" style="background-color: rgb(248, 148, 6); color: white;text-align:left; font-weight: bold; font-style: normal;font-family: Arial;"> Reports </a>
 	                                     
 	                                    </div>
 	                                    
-	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:170px;">
-	                                        <a href="dashboard.html" style="background-color: navy; width: 300px; height: 200px; color: white;text-align:left; font-size: 20px; font-weight: bold; font-style: normal;font-family: Arial;"> Dashboard </a>
+	                                    <div class="col-sm-5 col-md-offset-1 jumbotron"  style="padding-top: 2px;height:20%;">
+	                                        <a href="dashboard.html" style="background-color: navy;  color: white;text-align:left; font-weight: bold; font-style: normal;font-family: Arial;"> Dashboard </a>
 	                                    </div>
 	                                  </div>
                                         
                                     </div>
                                   
                                   </div>
-                              </div>
+                            
                             </div>  
 		                </div>
 		              <!--    

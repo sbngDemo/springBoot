@@ -20,8 +20,8 @@ $(document).ready(function() {
     var checkBoxes = frm.elements['notificationCheckbox'];
       for (i = 0; i < checkBoxes.length; i++){
         checkBoxes[i].checked = false;
-      }*/
-}
+      }
+}*/
 
 function selView1(col1, col2) {
 
