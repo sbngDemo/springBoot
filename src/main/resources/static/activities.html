@@ -15,7 +15,7 @@
 
 </head>
 <body ng-app="myApp">
-	
+	<form name="myform" method="" action="">
 	<div  class="container-fluid">
 		<div class="row fill">
 			  <div class="dashboard-nav">
@@ -122,8 +122,8 @@
 				                                                <th  align="right" st-ratio="50">
                                                                     <select id="bulkAct" st-input-event="change">
                                                                         <option value="bulkActions">Bulk actions</option>
-                                                                        <option onClick="selBulkActions();">Mark Unread</option>
-                                                                        <option onClick="selBulkActions();">Mark Read</option>
+                                                                        <option onClick="selBulkActions(document.myform);">Mark Unread</option>
+                                                                        <option onClick="selBulkActions(document.myform);">Mark Read</option>
                                                                     </select>
 				                                                </th>
 				                                            </tr>
@@ -138,7 +138,7 @@
 							                                                <td width="40%">{{row.notification}}</td>
 							                                                <td width="25%">{{row.timestamp}}</td>
 							                                                <td width="10%"><span ng-if="'High' ==  row.status" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-							                                                <td width="10%"><input type="checkbox" id="notificationCheckbox">&nbsp;<td>
+							                                                <td width="10%"><input type="checkbox" name="notificationCheckbox">&nbsp;<td>
 						                                            	</tr>
 					                                            	</table> 
 				                                            	</td>
@@ -226,7 +226,7 @@
 /* $('#tab7tab').load('/activities.html'); */
 </script>
 
-
+</form>
 
 </body>
 </html>

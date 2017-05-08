@@ -15,9 +15,12 @@ $(document).ready(function() {
 	});
 });
 
-function selBulkActions() {
+function selBulkActions(frm) {
 	document.getElementById('bulkAct').options[0].selected = 'selected';
-	document.getElementById('notificationCheckbox').checked = false;
+    var checkBoxes = frm.elements['notificationCheckbox'];
+      for (i = 0; i < checkBoxes.length; i++){
+        checkBoxes[i].checked = false;
+      }
 }
 
 function selView1(col1, col2) {

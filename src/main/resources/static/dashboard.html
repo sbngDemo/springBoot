@@ -16,6 +16,7 @@
 
 </head>
 <body ng-app="myApp">
+<form name="myform" method="" action="">
 	<div  class="container-fluid">
 		<div class="row">
 			  <div class="dashboard-nav">
@@ -120,8 +121,8 @@
 				                                                <th  align="right" st-ratio="50">
 				                                                    <select id="bulkAct" st-input-event="change">
 					                                                    <option value="bulkActions">Bulk actions</option>
-					                                                    <option onClick="selBulkActions();">Mark Unread</option>
-					                                                    <option onClick="selBulkActions();">Mark Read</option>
+					                                                    <option onClick="selBulkActions(document.myform);">Mark Unread</option>
+					                                                    <option onClick="selBulkActions(document.myform);">Mark Read</option>
 				                                                    </select>
 				                                                </th>
 				                                            </tr>
@@ -266,5 +267,6 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
 </script>
+</form>
 </body>
 </html>
