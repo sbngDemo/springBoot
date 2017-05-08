@@ -9,8 +9,8 @@ angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, 
 		$scope.loading = true;
 		$scope.rowCollection = response.data.notifications;
 		$scope.loading = false;
-		document.getElementById("totalNotifications").innerHTML= $scope.rowCollection.length;
-		
+		//document.getElementById("totalNotifications").innerHTML= $scope.rowCollection.length;
+		document.getElementById("totalNotifications").innerHTML= 5;
 
 	});
 
