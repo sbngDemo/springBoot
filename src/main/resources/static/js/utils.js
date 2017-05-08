@@ -15,6 +15,11 @@ $(document).ready(function() {
 	});
 });
 
+function selBulkActions() {
+	document.getElementById('bulkAct').options[0].selected = 'selected';
+	document.getElementById('notificationCheckbox').checked = false;
+}
+
 function selView1(col1, col2) {
 
 	var tb1 = document.getElementById("table1");

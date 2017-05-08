@@ -118,10 +118,10 @@
 					                                                </select>
 				                                                </th>				                                                
 				                                                <th  align="right" st-ratio="50">
-				                                                    <select st-input-event="change">
-					                                                    <option>Bulk actions</option>
-					                                                    <option>Mark Unread</option>
-					                                                    <option>Mark Read</option>
+				                                                    <select id="bulkAct" st-input-event="change">
+					                                                    <option value="bulkActions">Bulk actions</option>
+					                                                    <option onClick="selBulkActions();">Mark Unread</option>
+					                                                    <option onClick="selBulkActions();">Mark Read</option>
 				                                                    </select>
 				                                                </th>
 				                                            </tr>
@@ -136,7 +136,7 @@
 							                                                <td width="40%">{{row.notification}}</td>
 							                                                <td width="25%">{{row.timestamp}}</td>
 							                                                <td width="10%"><span ng-if="'High' ==  row.status" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-							                                                <td width="10%"><input type="checkbox" name="">&nbsp;<td>
+							                                                <td width="10%"><input type="checkbox" name="notificationCheckbox">&nbsp;<td>
 						                                            	</tr>
 					                                            	</table> 
 				                                            	</td>
