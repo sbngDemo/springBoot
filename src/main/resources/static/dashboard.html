@@ -120,7 +120,7 @@
 				                                                </th>				                                                
 				                                                <th  align="right" st-ratio="50">
 				                                                    <select ng-model="bulkAct" ng-change="myFunc()">
-                                                                        <option value="">Bulk actions</option>
+                                                                        <option value="">Bulk Actions</option>
                                                                         <option value="markUnread">Mark Unread</option>
                                                                         <option value="markRead">Mark Read</option>
                                                                     </select>
@@ -137,7 +137,7 @@
 							                                                <td width="40%">{{row.notification}}</td>
 							                                                <td width="25%">{{row.timestamp}}</td>
 							                                                <td width="10%"><span ng-if="'High' ==  row.status" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-							                                                <td width="10%"><input type="checkbox" name="notificationCheckbox">&nbsp;<td>
+							                                                <td width="10%"><input type="checkbox" ng-model="notificationCheckbox">&nbsp;<td>
 						                                            	</tr>
 					                                            	</table> 
 				                                            	</td>
@@ -212,23 +212,16 @@
 												</th>														                             
 				                             </tr>				                            
 				                             <tr  style="background-color: lightblue;">
-				                                <th id="th1" st-toggle-column st-sort="projectName">Project Name <a href="#"><span class="glyphicon glyphicon-sort"></span></a></th>
-				                                <th id="th2" st-toggle-column st-sort="projectId">Project ID <a href="#"><span class="glyphicon glyphicon-sort"></span></a></th>
-				                                <th id="th3" st-toggle-column st-sort="createdBy">Created By <a href="#"><span class="glyphicon glyphicon-sort"></span></a></th>
-				                                <th id="th4" st-toggle-column st-sort="projectStatus">Project Status <a href="#"><span class="glyphicon glyphicon-sort"></span></a></th>
-				                                <th id="th5" st-toggle-column st-sort="dateInitiation">Date Initiation <a href="#"><span class="glyphicon glyphicon-sort"></span></a></th>
-				                                <th id="th6" st-toggle-column st-sort="dateCompletion">Date Completion <a href="#"><span class="glyphicon glyphicon-sort"></span></a></th>
-				                                <th id="th7" st-toggle-column st-sort="action">Action</th>
+				                               			                                
+				                                <th lr-drag-src="headers" lr-drop-target="headers" st-toggle-column ng-repeat="col in tableHeader" st-sort="{{col.value}}" id="th{{$index+1}}">{{col.name}} <i class="fa fa-fw fa-sort"></i></th>
+				                                 <th  st-toggle-column>Action <i class="fa fa-fw" ></i></th>
+				                                
 				                             </tr>
 				                          </thead>
 				                          <tbody>
 				                                 <tr ng-repeat="project in displayCollection">
-				                                     <td st-toggle-item>{{project.projectName}}</td>
-				                                     <td st-toggle-item>{{project.projectId}}</td>
-				                                     <td st-toggle-item>{{project.createdBy}}</td>
-				                                     <td st-toggle-item><span class="{{ project.projectStatus | lowercase}}">{{project.projectStatus}}</span></td>
-				                                     <td st-toggle-item>{{project.dateInitiation}}</td>
-				                                     <td st-toggle-item>{{project.dateCompletion}}</td>
+				                                    
+				                                      <td st-toggle-item ng-repeat="col in tableHeader"><span class="{{ project[col.value] | lowercase}}">{{project[col.value]}}</span></td>
 				                                     <td st-toggle-item class="actions">
 				                                         <a href="activities.html"><i class="fa fa-eye"></i></a>
 				                                         <i class="fa fa-pencil"></i>

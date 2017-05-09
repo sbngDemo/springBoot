@@ -20,8 +20,9 @@ angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, 
 	$scope.selectedPredicate = $scope.predicates[0];
 	
 	$scope.myFunc = function(){
+		//alert("here");
 		$scope.bulkAct="";
-		/* var checkBoxes = frm.elements['notificationCheckbox'];
+		 /*var checkBoxes = $scope.frm.elements['notificationCheckbox'];
 	      for (i = 0; i < checkBoxes.length; i++){
 	        checkBoxes[i].checked = false;
 	      }*/
@@ -72,6 +73,15 @@ angular.module('myApp.projectDesciptions',[]).controller('projectDesciptions', f
 					    {name : "20 Records per Page", value : "20"},
 					    {name : "30 Records per Page", value : "30"}
 					];
+	$scope.tableHeader = [
+	    {name : "Project Name", value : "projectName"},
+	    {name : "Project ID", value : "projectId"},
+	    {name : "Created By", value : "createdBy"},
+	    {name : "Project Status", value : "projectStatus"},
+	    {name : "Date Initiation", value : "dateInitiation"},
+	    {name : "Date Completion", value : "dateCompletion"}
+	   
+	];
 	
 	$scope.changePageSize = function(){		
 		$scope.itemsPerPage = $scope.selectedItemPerPage;		
