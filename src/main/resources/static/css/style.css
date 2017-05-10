@@ -87,11 +87,8 @@ i.notification{font-size: 33px;
 .actions i{    font-size: 30px;
     padding: 0px 5px;}
 
-.warning,.completed,.error{color: white; display: block; padding: 5px;
+.completed{color: green; display: block; 
     font-size: 17px;}    
-.warning{background-color: #F0AD57;}
-.completed{background-color: #5FB863;}
-.error{background-color: #D95250;}
 .notif-row{    background-color: #D7D7D7;
     display: inline-block;
     width: 100%;
