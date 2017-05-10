@@ -1,10 +1,10 @@
 {"projectDetails":[
-    { "projectName":"Essential Parachute", "projectId":"SHKT0001", "createdBy":"John Doe" , "projectStatus":"Completed", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"},
+    { "projectName":"Essential Parachute", "projectId":"ABAY2001", "createdBy":"John Doe" , "projectStatus":"Completed", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"},
     { "projectName":"Plutonium Blue", "projectId":"MDRA0002", "createdBy":"John Q. Public" , "projectStatus":"Defined", "dateInitiation":"03/02/2017", "dateCompletion":"05/02/2017"},
 	{ "projectName":"Running Longitude", "projectId":"THOM1991", "createdBy":"Joe Blow" , "projectStatus":"Risk Analysis", "dateInitiation":"04/02/2017", "dateCompletion":"05/02/2017"},
 	{ "projectName":"Hollow Sledgehammer", "projectId":"CUBS2016", "createdBy":"Sally Sixpack" , "projectStatus":"Data De-ID", "dateInitiation":"01/02/2017", "dateCompletion":"05/02/2017"},
 	{ "projectName":"Navy Boiling Compass", "projectId":"AAMY8642", "createdBy":"Koos van der Merwe" , "projectStatus":"Doc De-ID", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"},
-	{ "projectName":"Full Logbook", "projectId":"PNKU3456", "createdBy":"Kwasi Mensa" , "projectStatus":"Error", "dateInitiation":"03/02/2017", "dateCompletion":"05/02/2017"},
+	{ "projectName":"Full Logbook", "projectId":"PNKU3456", "createdBy":"Kwasi Mensa" , "projectStatus":"Anonymized", "dateInitiation":"03/02/2017", "dateCompletion":"05/02/2017"},
 	{ "projectName":"Steep Creek", "projectId":"RAMA0110", "createdBy":"Peter Petrov" , "projectStatus":"Review: Anon Plan", "dateInitiation":"04/02/2017", "dateCompletion":"06/02/2017"},
 	{ "projectName":"Discarded Autumn", "projectId":"RYAN1001", "createdBy":"Jane Doe" , "projectStatus":"Review: Anon Report", "dateInitiation":"02/02/2017", "dateCompletion":"07/02/2017"},
 	{ "projectName":"Tasty Iron", "projectId":"BULS1996", "createdBy":"Joe Sixpack" , "projectStatus":"Review: Define.xml", "dateInitiation":"02/02/2017", "dateCompletion":"08/02/2017"},
@@ -25,6 +25,6 @@
 	{ "projectName":"Mysterious Scorpion", "projectId":"PRVN1234", "createdBy":"Max Mustermann" , "projectStatus":"Review: Anon Plan", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"},
 	{ "projectName":"Arm Gutsy", "projectId":"FRNK2020", "createdBy":"Aristoteles Amadopulus" , "projectStatus":"Data De-ID", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"},
 	{ "projectName":"Reborn Dinosaur", "projectId":"DMAN2020", "createdBy":"Anamika" , "projectStatus":"Defined", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"},
-	{ "projectName":"Beacon Test", "projectId":"GORV2345", "createdBy":"Gyula Kovacs" , "projectStatus":"Anonymized", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"}
+	{ "projectName":"Beacon Test", "projectId":"SHKT1001", "createdBy":"Gyula Kovacs" , "projectStatus":"Anonymized", "dateInitiation":"02/02/2017", "dateCompletion":"05/02/2017"}
    
 ]}
