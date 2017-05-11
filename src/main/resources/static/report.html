@@ -19,6 +19,10 @@
 	<div  class="container-fluid" >
 		<div class="row">
 			  <div class="dashboard-nav">
+			  <div ng-controller="dateAndTime" >
+			     <p><img src="Images/Shadow_Horizontal_Color_RGB.png" alt="shadow" style="height:15%; width:15%; padding-top:0.5%; text-align: left; float: left;"></p>
+			     <nav class="nav navbar-nav "  ng-controller="dateAndTime" style="padding-left:20%; padding-top:1.5%; color: white;">{{date| date:'medium'}}, Version 1.0</nav>
+			    </div>
 			    <nav class="navbar">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -131,7 +135,7 @@
 				                                        <tbody>
 				                                            <tr  >
 				                                            	<td colspan="2"  st-ratio="100">
-					                                            	<table class="table table-striped" ng-repeat="row in displayCollection" style="margin-bottom: 0px; padding: 0px">
+					                                            	<table class="table table-striped table-hover" ng-repeat="row in displayCollection" style="margin-bottom: 0px; padding: 0px">
 						                                            	<tr class="{{row.timestamp}}">				                                            	
 							                                            	<td width="5%" >{{$index+1}}</td>
 							                                                <td width="10%"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
@@ -193,18 +197,7 @@
 <script src="js/lrDragNDrop.js"></script>
 
 
-<script type="text/javascript">
 
-
-var app = angular.module('myApp1', []);
-app.controller('buttonCtrl', function($scope){
-	$scope.setActiveTab = function(tabToSet) {
-		alert('here');
-        $scope.activeTab = tabToSet;
-    }
-});
-
-</script>
 </form>
 </body>
 </html>

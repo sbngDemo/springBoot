@@ -29,6 +29,14 @@ angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, 
 	};
 });
 
+app.controller('dateAndTime', function ($scope){
+	/*$scope.date = function() {
+		  return (new Date).toLocaleFormat("%A, %B %e, %Y");
+		};*/
+	$scope.date = new Date();
+	
+});
+
 app.filter('myStrictFilter', function($filter) {
 	return function(input, predicate) {
 		return $filter('filter')(input, predicate, true);
