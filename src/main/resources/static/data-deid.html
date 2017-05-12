@@ -14,10 +14,14 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
 
 </head>
-<body>
+<body ng-app="myApp">
     <div class="container-fluid">
         <div class="row">
               <div class="dashboard-nav">
+                <div ng-controller="dateAndTime" >
+                     <p><img src="Images/Shadow_Horizontal_Color_RGB.png" alt="shadow" style="height:15%; width:15%; padding-top:0.5%; text-align: left; float: left;"></p>
+                     <nav class="nav navbar-nav " ng-controller="dateAndTime" style="padding-left:20%; padding-top:1.5%; color: white;">{{date| date:'medium'}}, Version 1.0</nav>
+                </div>
                 <nav class="navbar">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -97,5 +101,7 @@
 <script src="js/controller.js"></script>
 <script src="js/smart-table.js"></script>
 <script src="js/utils.js"></script>
+<script src="js/toggle-column.js"></script>
+<script src="js/lrDragNDrop.js"></script>
 </body>
 </html>
