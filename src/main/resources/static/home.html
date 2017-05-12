@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title>Dashboard</title>
+		<!-- css -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+
+</head>
+<body ng-app="myApp">
+<form name="myform" method="" action="">
+	<div  class="container-fluid">
+		<div ng-include="'header.html'"></div>	
+       <div class="body-wrapper">
+			<div class="row">
+		       <div ng-controller="tabName" class="col-sd-12">
+		            <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
+		                <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="dashboard.html" ng-click="getScreen('dashboard.html')">Dashboard</a> </li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="activities.html" ng-click="getScreen('activities.html')">Activity Menu</a></li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="risk.html" ng-click="getScreen('risk.html')">Risk Analysis</a> </li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="data-deid.html" ng-click="getScreen('data-deid.html')">Data De-Identification</a> </li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="doc-deid.html" ng-click="getScreen('doc-deid.html')">Doc De-Identification</a> </li>
+                        <li style="width: 14.28%"> <a data-toggle="tab" href="anonymization.html" ng-click="getScreen('anonymization.html')">Anonymization</a> </li>
+                        <li style="width: 14.28%"><a data-toggle="tab" href="report.html" ng-click="getScreen('report.html')">Reports</a></li>
+		            
+		            </ul>
+		            <div class="tab-content">
+		            	<div id="{{screenName}}" class="tab-pane fade in active" ng-include="screenName"></div>
+		            </div>	
+		           
+		        </div>			
+
+        </div>
+    </div>
+ 
+</div> <!-- container-fluid -->
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+ <script src="js/angular-datatables.min.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/smart-table.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/toggle-column.js"></script>
+<script src="js/lrDragNDrop.js"></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</form>
+</body>
+</html>

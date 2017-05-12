@@ -30,11 +30,14 @@ angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, 
 });
 
 app.controller('dateAndTime', function ($scope){
-	/*$scope.date = function() {
-		  return (new Date).toLocaleFormat("%A, %B %e, %Y");
-		};*/
-	$scope.date = new Date();
-	
+	$scope.date = new Date();	
+});
+
+app.controller('tabName', function($scope){
+	$scope.screenName="dashboard.html";
+	$scope.getScreen = function(scren){
+		$scope.screenName=scren;
+	}
 });
 
 app.filter('myStrictFilter', function($filter) {

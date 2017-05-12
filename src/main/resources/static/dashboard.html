@@ -1,292 +1,196 @@
-<!DOCTYPE html> 
-<html>
-<head>
-	<title>Dashboard</title>
-		<!-- css -->
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/dataTables.bootstrap.min.css">
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+<div class="tab-content row active">
+	<div id="currenttab" class="tab-pane fade in active border row">
+		<div class="col-md-3">
 
-</head>
-<body ng-app="myApp">
-<form name="myform" method="" action="">
-	<div  class="container-fluid">
-		<div class="row">
-			  <div class="dashboard-nav">
-			    <div ng-controller="dateAndTime" >
-			     <p><img src="Images/Shadow_Horizontal_Color_RGB.png" alt="shadow" style="height:15%; width:15%; padding-top:0.5%; text-align: left; float: left;"></p>
-			     <nav class="nav navbar-nav "  ng-controller="dateAndTime" style="padding-left:20%; padding-top:1.5%; color: white;">{{date| date:'medium'}}, Version 1.0</nav>
-			    </div>
-			    
-			    <nav class="navbar">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						</button>
+			<!-- heading -->
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="pull-left notif-head">Notifications</h1>
+					<i class="fa fa-bell-o notification"></i>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<div
+						style="background-color: white; direction: ltl; height: 85vh; overflow-x: scroll; overflow-y: scroll;">
+
+						<!-- ------------------------------------------------- -->
+						<div ng-controller="filterCtrl" style="padding-left: 10px">
+							<table st-table="displayCollection" st-safe-src="rowCollection"
+								class="table table-striped">
+								<thead>
+									<tr>
+										<th colspan="2" st-ratio="100"
+											class="form-group search-container" style="padding-left: 7%">
+											<input st-search placeholder=" Search Notifications "
+											class="fa fa-search form-control" type="search" />
+										</th>
+									</tr>
+									<tr>
+										<th st-ratio="50" class="text-center"><select
+											st-input-event="change" st-search="status">
+												<option value="">Show All</option>
+												<option ng-repeat="row in rowCollection | unique:'status'"
+													value="{{row.status}}">{{row.status}}</option>
+										</select></th>
+										<th align="right" st-ratio="50"><select
+											ng-model="bulkAct" ng-change="myFunc()">
+												<option value="">Bulk Actions</option>
+												<option value="markUnread">Mark Unread</option>
+												<option value="markRead">Mark Read</option>
+										</select></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td colspan="2" st-ratio="100">
+											<table class="table table-striped table-hover"
+												ng-repeat="row in displayCollection"
+												style="margin-bottom: 0px; padding: 0px">
+												<tr class="{{row.timestamp}}">
+													<td width="5%">{{$index+1}}</td>
+													<td width="10%"><i
+														class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
+													<td width="40%">{{row.notification}}</td>
+													<td width="25%">{{row.timestamp}}</td>
+													<td width="10%"><span ng-if="'High' ==  row.status"
+														class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
+													<td width="10%"><input type="checkbox"
+														ng-model="notificationCheckbox">&nbsp;
+													<td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+
+							</table>
+						</div>
+						<!-- ------------------------------------------------- -->
+
 					</div>
+				</div>
+			</div>
 
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
-						<ul class="nav navbar-nav">
-					    <li>
-							<a href="#takeControl">Notification: <label id="totalNotifications">0</label></a>
-						</li>
-						<li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Name
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">My account</a></li>
-					          <li><a href="#">logout</a></li>
-					        </ul>
-					     </li>
-						<li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">History
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">User History</a></li>
-					          <li><a href="#">Project History</a></li>		
-					        </ul>
-					     </li>
-						<li>
-							<a href="#betterDecisions">Admin</a>
-						</li>
-						<li>
-							<a href="#pricing">Community</a>
-						</li>
-						<li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Help
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu pull-right">
-					          <li><a href="#">Help Content</a></li>
-					          <li><a href="#">Help on this Page</a></li>
-	       			        </ul>
-					     </li>
-						</ul>
-					</div>
-
-				</nav>
-			  </div>
 		</div>
 
-
-       <div class="body-wrapper">
+		<div class="col-md-9" style="padding-left: 5px;">
 			<div class="row">
-		       <div class="col-sd-12">
-		            <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
-		                <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="#currenttab">Dashboard</a> </li>
-                        <li style="width: 14.28%"><a href="activities.html">Activity Menu</a></li>
-                        <li style="width: 14.28%"> <a href="risk.html">Risk Analysis</a> </li>
-                        <li style="width: 14.28%"> <a href="data-deid.html">Data De-Identification</a> </li>
-                        <li style="width: 14.28%"> <a href="doc-deid.html">Doc De-Identification</a> </li>
-                        <li style="width: 14.28%"> <a href="anonymization.html">Anonymization</a> </li>
-                        <li style="width: 14.28%"> <a href="report.html">Reports</a> </li>
-		            
-		            </ul>
-		            <div class="tab-content row active">
-		                <div id="currenttab" class="tab-pane fade in active border row">
-				                <div class="col-md-3">
-				                    
-				                    <!-- heading -->
-				                    <div class="row">
-				                        <div class="col-md-12">
-				                            <h1 class="pull-left notif-head">Notifications</h1>
-				                            <i class="fa fa-bell-o notification"></i>
-				                        </div>
-				                    </div>
-				
-				                    <div class="row">
-				                        <div class="col-md-12">
-				                          <div style="background-color: white;direction: ltl; height: 85vh;  overflow-x: scroll; overflow-y: scroll;">
-				                          
-				                    <!-- ------------------------------------------------- -->
-				                                <div  ng-controller="filterCtrl" style="padding-left: 10px">
-				                                    <table st-table="displayCollection" st-safe-src="rowCollection"  class="table table-striped">
-				                                        <thead>				                                           
-				                                            <tr>				                                        
-				                                                 <th colspan="2" st-ratio="100"  class="form-group search-container" style="padding-left: 7%" >
-				                                                	<input st-search placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />  
-				                                                </th>
-				                                            </tr>
-				                                            <tr>
-				                                                <th st-ratio="50"  class="text-center">
-					                                                <select st-input-event="change" st-search="status">
-					                                                        <option value=""> Show All </option>
-					                                                        <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
-					                                                </select>
-				                                                </th>				                                                
-				                                                <th  align="right" st-ratio="50">
-				                                                    <select ng-model="bulkAct" ng-change="myFunc()">
-                                                                        <option value="">Bulk Actions</option>
-                                                                        <option value="markUnread">Mark Unread</option>
-                                                                        <option value="markRead">Mark Read</option>
-                                                                    </select>
-				                                                </th>
-				                                            </tr>
-				                                        </thead>
-				                                        <tbody>
-				                                            <tr  >
-				                                            	<td colspan="2"  st-ratio="100">
-					                                            	<table class="table table-striped table-hover" ng-repeat="row in displayCollection" style="margin-bottom: 0px; padding: 0px">
-						                                            	<tr>				                                            	
-							                                            	<td width="5%" >{{$index+1}}</td>
-							                                                <td width="10%"><i class="fa fa-square {{ row.status | lowercase}}-notification"></i></td>
-							                                                <td width="40%">{{row.notification}}</td>
-							                                                <td width="25%">{{row.timestamp}}</td>
-							                                                <td width="10%"><span ng-if="'High' ==  row.status" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
-							                                                <td width="10%"><input type="checkbox" ng-model="notificationCheckbox">&nbsp;<td>
-						                                            	</tr>
-					                                            	</table> 
-				                                            	</td>
-				                                            </tr>
-				                                        </tbody>
-				                                       
-				                                    </table>
-				                                </div>
-				<!-- ------------------------------------------------- -->
-				                              
-				                          </div>    
-				                        </div>
-				                    </div>
-				
-				                </div>  
-				
-				                <div class="col-md-9" style="padding-left: 5px;">
-				                    <div class="row">
-				                        <div class="col-md-12">
-				                            <h1 class="pull-left">Dashboard</small></h1>
-				
-				                            <div class="pull-right" style="padding-right: 20px"><a href="#" data-toggle="tooltip" data-placement="bottom"  title="Create New Project"><img width="50" src="images/add-button.png" style="padding-top: 10px;" 
-				                            /></a>
-				                            
-				                            </div>
-				                            <h1 class="pull-right" style="padding-right: 10px">
-				                                <small style="font-size: 18px;">
-				                                     <select>
-				                                         <option>Default</option>
-				                                         <option onClick="selView1('1','2');">View1</option>
-				                                         <option onClick="selView2('4','5');">View2</option>
-				                                         <option onClick="selView3('2','3');">View3</option>
-				                                     </select>
-				                                 </small>
-				                            </h1>
-				                        </div>
-				                    </div>
-				                    <div ng-controller="projectDesciptions" class="row" style="background-color: white;direction: ltl; height: 85vh; overflow: auto;padding-right: 30px;padding-left: 1px;">
-				                         <table id="table1" st-table="displayCollection" st-safe-src="rowCollection" class="table table-striped table-hover">
-				                       		<thead>
-				                            <tr >
-				                             	<th colspan="2">
-				                             		<select class="form-control col-lg-12 col-md-12 col-sm-4 col-xs-12" ng-init="selectedItemPerPage = pageSizes[0].value"  ng-model="selectedItemPerPage" ng-options="option.value as option.name for option in pageSizes" ng-change="changePageSize()">
-												   	</select> 
-												 </th>				                             	
-				                             	<th></th>
-				                             	<th>
-					                             	<!-- Modal -->
-					                             	<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Columns Hide/Show</button>
-													  <div class="modal fade" id="myModal" role="dialog">
-													    <div class="modal-dialog">
-													      Modal content
-													      <div class="modal-content">
-													         <div class="modal-header  bg-primary">
-													          <button type="button" class="close" data-dismiss="modal">&times;</button>
-													          <h4 class="modal-title">Select the columns to hide </h4>
-													        </div>
-													        <div class="modal-body  bg-info">
-													           	<div st-toggle-menu></div>
-													        </div>
-													        <div class="modal-footer">
-													          <button type="button" class="btn  btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-													        </div>
-													      </div>
-													      
-													    </div>
-													  </div>		
-				                             	</th>
-				                             	<th></th>
-				                             	<th colspan="2">
-													<input st-search placeholder="Search Project Details..." class="input-sm form-control type="search"/>
-												</th>														                             
-				                             </tr>				                            
-				                             <tr  style="background-color: lightblue;">
-				                               			                                
-				                               
-				                                <th id="th1" st-toggle-column st-sort="projectName">Project Name <i class="fa fa-fw fa-sort"></i></th>
-				                                <th id="th2" st-toggle-column st-sort="projectId">Project ID <i class="fa fa-fw fa-sort"></i></th>
-				                                <th id="th3" st-toggle-column st-sort="createdBy">Created By: <i class="fa fa-fw fa-sort"></i></th>
-				                                <th id="th4" st-toggle-column st-sort="projectStatus">Project Status <i class="fa fa-fw fa-sort"></i></th>
-				                                <th id="th5" st-toggle-column st-sort="dateInitiation">Date Initiation <i class="fa fa-fw fa-sort"></i></th>
-				                                <th id="th6" st-toggle-column st-sort="dateCompletion">Date Completion <i class="fa fa-fw "></i></th>
-				                                <th id="th7" st-toggle-column st-sort="action">Action</th>
-				                             			                                
-				                               <!--  <th lr-drag-src="headers" lr-drop-target="headers" st-toggle-column ng-repeat="col in tableHeader" st-sort="{{col.value}}" id="th{{$index+1}}">{{col.name}} <i class="fa fa-fw fa-sort"></i></th>
-				                                 <th  st-toggle-column>Action <i class="fa fa-fw" ></i></th> -->
-				                                
-				                             </tr>
-				                          </thead>
-				                          <tbody>
-				                                 <!-- <tr ng-repeat="project in displayCollection">
-				                                    
-				                                      <td st-toggle-item ng-repeat="col in tableHeader"><span class="{{ project[col.value] | lowercase}}">{{project[col.value]}}</span></td>
-				                                     <td st-toggle-item class="actions">
-				                                         <a href="activities.html"><i class="fa fa-eye"></i></a>
-				                                         <i class="fa fa-pencil"></i>
-				                                         <i class="fa fa-times"></i>
-				                                     </td>
-				                                 </tr> -->
-				                             <tr ng-repeat="project in displayCollection">
-				                                     <td st-toggle-item>{{project.projectName}}</td>
-				                                     <td st-toggle-item>{{project.projectId}}</td>
-				                                     <td st-toggle-item>{{project.createdBy}}</td>
-				                                     <td st-toggle-item><span class="{{ project.projectStatus | lowercase}}">{{project.projectStatus}}</span></td>
-				                                     <td st-toggle-item>{{project.dateInitiation}}</td>
-				                                     <td st-toggle-item>{{project.dateCompletion}}</td>
-				                                     <td st-toggle-item class="actions">
-				                                         <a href="activities.html"><i class="fa fa-eye"></i></a>
-				                                         <i class="fa fa-pencil"></i>
-				                                         <i class="fa fa-times"></i>
-				                                     </td>
-				                                 </tr>    
-				                            </tbody>
-				                            <tfoot>
-												<tr>
-													<td colspan="7" class="text-right">
-														<div st-pagination="" st-items-by-page="itemsPerPage" ></div>
-													</td>
-												</tr>
-											</tfoot>	                       	
-				           			</table>
-				                    </div>  
-		                    </div> 
-		                </div>
-		            </div>
-		           
-		        </div>			
+				<div class="col-md-12">
+					<h1 class="pull-left">
+						Dashboard</small>
+					</h1>
 
-        </div>
-    </div>
- 
-</div> <!-- container-fluid -->
- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
- <script src="js/angular-datatables.min.js"></script>
-<script src="js/controller.js"></script>
-<script src="js/smart-table.js"></script>
-<script src="js/utils.js"></script>
-<script src="js/toggle-column.js"></script>
-<script src="js/lrDragNDrop.js"></script>
-<script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>
-</form>
-</body>
-</html>
+					<div class="pull-right" style="padding-right: 20px">
+						<a href="#" data-toggle="tooltip" data-placement="bottom"
+							title="Create New Project"><img width="50"
+							src="images/add-button.png" style="padding-top: 10px;" /></a>
+
+					</div>
+					<h1 class="pull-right" style="padding-right: 10px">
+						<small style="font-size: 18px;"> <select>
+								<option>Default</option>
+								<option onClick="selView1('1','2');">View1</option>
+								<option onClick="selView2('4','5');">View2</option>
+								<option onClick="selView3('2','3');">View3</option>
+						</select>
+						</small>
+					</h1>
+				</div>
+			</div>
+			<div ng-controller="projectDesciptions" class="row"
+				style="background-color: white; direction: ltl; height: 85vh; overflow: auto; padding-right: 30px; padding-left: 1px;">
+				<table id="table1" st-table="displayCollection"
+					st-safe-src="rowCollection" class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th colspan="2"><select
+								class="form-control col-lg-12 col-md-12 col-sm-4 col-xs-12"
+								ng-init="selectedItemPerPage = pageSizes[0].value"
+								ng-model="selectedItemPerPage"
+								ng-options="option.value as option.name for option in pageSizes"
+								ng-change="changePageSize()">
+							</select></th>
+							<th></th>
+							<th>
+								<!-- Modal -->
+								<button type="button" class="btn btn-info btn-sm"
+									data-toggle="modal" data-target="#myModal">Columns Hide/Show</button>
+								<div class="modal fade" id="myModal" role="dialog">
+									<div class="modal-dialog">
+										Modal content
+										<div class="modal-content">
+											<div class="modal-header  bg-primary">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Select the columns to hide</h4>
+											</div>
+											<div class="modal-body  bg-info">
+												<div st-toggle-menu></div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn  btn-danger btn-default" data-dismiss="modal">
+													<span class="glyphicon glyphicon-remove"></span> Close
+												</button>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</th>
+							<th></th>
+							<th colspan="2"><input st-search
+								placeholder="Search Project Details..."
+								class="input-sm form-control type=" search"/></th>
+						</tr>
+						<tr style="background-color: lightblue;">
+
+
+							<th id="th1" st-toggle-column st-sort="projectName">Project Name <i class="fa fa-fw fa-sort"></i> </th>
+							<th id="th2" st-toggle-column st-sort="projectId">Project ID <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th3" st-toggle-column st-sort="createdBy">CreatedBy: <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th4" st-toggle-column st-sort="projectStatus">Project Status <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th5" st-toggle-column st-sort="dateInitiation">Date Initiation <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th6" st-toggle-column st-sort="dateCompletion">Date Completion <i class="fa fa-fw "></i></th>
+							<th id="th7" st-toggle-column st-sort="action">Action</th>
+
+							<!--  <th lr-drag-src="headers" lr-drop-target="headers" st-toggle-column ng-repeat="col in tableHeader" st-sort="{{col.value}}" id="th{{$index+1}}">{{col.name}} <i class="fa fa-fw fa-sort"></i></th>
+                               <th  st-toggle-column>Action <i class="fa fa-fw" ></i></th> -->
+
+						</tr>
+					</thead>
+					<tbody>
+						<!-- <tr ng-repeat="project in displayCollection">
+                                  
+                                    <td st-toggle-item ng-repeat="col in tableHeader"><span class="{{ project[col.value] | lowercase}}">{{project[col.value]}}</span></td>
+                                   <td st-toggle-item class="actions">
+                                       <a href="activities.html"><i class="fa fa-eye"></i></a>
+                                       <i class="fa fa-pencil"></i>
+                                       <i class="fa fa-times"></i>
+                                   </td>
+                               </tr> -->
+						<tr ng-repeat="project in displayCollection">
+							<td st-toggle-item>{{project.projectName}}</td>
+							<td st-toggle-item>{{project.projectId}}</td>
+							<td st-toggle-item>{{project.createdBy}}</td>
+							<td st-toggle-item><span
+								class="{{ project.projectStatus | lowercase}}">{{project.projectStatus}}</span></td>
+							<td st-toggle-item>{{project.dateInitiation}}</td>
+							<td st-toggle-item>{{project.dateCompletion}}</td>
+							<td st-toggle-item class="actions"><a href="activities.html"><i
+									class="fa fa-eye"></i></a> <i class="fa fa-pencil"></i> <i
+								class="fa fa-times"></i></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="7" class="text-right">
+								<div st-pagination="" st-items-by-page="itemsPerPage"></div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
