@@ -9,13 +9,10 @@ angular.module('myApp.filterCtrl',[]).controller('filterCtrl', function($scope, 
 		$scope.loading = true;
 		$scope.rowCollection = response.data.notifications;
 		$scope.loading = false;
-		//document.getElementById("totalNotifications").innerHTML= $scope.rowCollection.length;
-		document.getElementById("totalNotifications").innerHTML= 5;
-
+		document.getElementById("showNotifications").innerHTML = "<a href='#takeControl'>Notification: <strong>5</strong></a>";		
 	});
 
-	$scope.displayCollection = [].concat($scope.rowCollection);
-	
+	$scope.displayCollection = [].concat($scope.rowCollection);	
 	$scope.predicates = [ 'status', 'notification', 'timeStamp'];
 	$scope.selectedPredicate = $scope.predicates[0];
 	
@@ -35,8 +32,14 @@ app.controller('dateAndTime', function ($scope){
 
 app.controller('tabName', function($scope){
 	$scope.screenName="dashboard.html";
-	$scope.getScreen = function(scren){
+	$scope.activeMenu="dashboard.html";
+	$scope.getScreen = function(scren, notification){
 		$scope.screenName=scren;
+		$scope.activeMenu=scren;
+		if('hide' === notification)
+			document.getElementById("showNotifications").innerHTML= ""; 
+			
+		
 	}
 });
 

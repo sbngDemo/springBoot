@@ -23,14 +23,13 @@
 			<div class="row">
 		       <div ng-controller="tabName" class="col-sd-12">
 		            <ul class="nav nav-tabs" style="text-align:center; font-weight: bold; color: black;">
-		                <li style="width: 14.28%" class="active"> <a data-toggle="tab" href="dashboard.html" ng-click="getScreen('dashboard.html')">Dashboard</a> </li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="activities.html" ng-click="getScreen('activities.html')">Activity Menu</a></li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="risk.html" ng-click="getScreen('risk.html')">Risk Analysis</a> </li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="data-deid.html" ng-click="getScreen('data-deid.html')">Data De-Identification</a> </li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="doc-deid.html" ng-click="getScreen('doc-deid.html')">Doc De-Identification</a> </li>
-                        <li style="width: 14.28%"> <a data-toggle="tab" href="anonymization.html" ng-click="getScreen('anonymization.html')">Anonymization</a> </li>
-                        <li style="width: 14.28%"><a data-toggle="tab" href="report.html" ng-click="getScreen('report.html')">Reports</a></li>
-		            
+		                <li style="width: 14.28%" ng-class="{active:activeMenu==='dashboard.html'}"> <a data-toggle="tab" href="dashboard.html" ng-click="getScreen('dashboard.html', 'show')">Dashboard</a> </li>
+                        <li style="width: 14.28%" ng-class="{active:activeMenu==='activities.html'}"> <a data-toggle="tab" href="activities.html" ng-click="getScreen('activities.html','show')">Activity Menu</a></li>
+                        <li style="width: 14.28%" ng-class="{active:activeMenu==='risk.html'}"> <a data-toggle="tab" href="risk.html" ng-click="getScreen('risk.html','hide')">Risk Analysis</a> </li>
+                        <li style="width: 14.28%" ng-class="{active:activeMenu==='data-deid.html'}"> <a data-toggle="tab" href="data-deid.html" ng-click="getScreen('data-deid.html','hide')">Data De-Identification</a> </li>
+                        <li style="width: 14.28%" ng-class="{active:activeMenu==='doc-deid.html'}"> <a data-toggle="tab" href="doc-deid.html" ng-click="getScreen('doc-deid.html','hide')">Doc De-Identification</a> </li>
+                        <li style="width: 14.28%" ng-class="{active:activeMenu==='anonymization.html'}"> <a data-toggle="tab" href="anonymization.html" ng-click="getScreen('anonymization.html','hide')">Anonymization</a> </li>
+                        <li style="width: 14.28%" ng-class="{active:activeMenu==='report.html'}"><a data-toggle="tab" href="report.html" ng-click="getScreen('report.html','show')">Reports</a></li>		            
 		            </ul>
 		            <div class="tab-content">
 		            	<div id="{{screenName}}" class="tab-pane fade in active" ng-include="screenName"></div>
