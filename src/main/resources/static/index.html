@@ -21,54 +21,28 @@ function callDashboard() {
 }
 
 </script>
-<body>
+<body class="ng-scope">
  
-<div class="main">
- 
-    <div class="container-fluid">
-        <div class="container-login">
-
-                <div class="login-sec">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="box">
-                                <form>
-                                  <div class="form-group">
-                                    <input type="text" name="" placeholder="Username"/>
-                                    <i class="fa fa-user"></i>
-                                  </div>
-
-                                  <div class="form-group">
-                                    <input type="password" name="" placeholder="Password"/>
-                                    <i class="fa fa-lock"></i>
-                                  </div>
-                                  
-                                  <div class="form-group">  
-                                    <a class="button" href="home.html">log in</a>
-                                  </div>
-
-                                </form>
-                            </div>
+<div class="ng-scope" autoscroll="true" ui-view=""><section class="ng-scope">
+        <div id="gceproj"></div>
+        <div class="container">
+            <div class="admin-log">
+                <div class="text-center logo"> <img class="gce-logo" src="Images/Shadow_Square_Color_Inverted_RGB (1).gif"> </div>
+                <div class="gceproj-container">
+                    <form name="loginForm" class="form-signin ng-pristine ng-valid" id="drpxlog-login-form" role="form" method="post">
+                        <div class="form-group">
+                            <input class="form-control" type="email" placeholder="User Name" value="">
                         </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <a href="#" class="forgot-text">forgot your password?</a>
-                        </div>  
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <a href="#" class="btn-transparent">Register</a>
-                        </div>  
-                    </div>
-
+                        <div class="form-group">
+                            <input class="form-control" type="password" placeholder="Password" value="">
+                        </div>
+                        <a class="btn btn-block w600" href="home.html">Sign in</a>
+                    </form>
+                    <a class="password-link" href="home.html"><small>Forgot your password?</small></a><br><br>
+                    <small class="register-link"><b>Don't have an account? <a href="#">RegisterHere</a> </b></small>
                 </div>
-                
+            </div>
         </div>
-    </div>     
-     
-</div>
+</section></div>
 </body>
 </html>
