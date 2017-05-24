@@ -1,48 +1,62 @@
-<!DOCTYPE HTML>
- 
-<html>
+<!doctype html>
+<html class="no-js">
+
 <head>
-      <title>Index</title>
-      <meta charset="utf-8" />
-      <meta name="apple-mobile-web-app-capable" content="yes" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
-      <script src="/js/controller.js"></script>
-
-      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-      <link rel="stylesheet" type="text/css" href="css/style.css"/>
-      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
-       
+    <meta charset="utf-8">
+    <title>Data Anonymization</title>
+    <link rel="icon" href="/assets/favicon.ico">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+     
+    <base href="/">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/> 
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css"/>  
 </head>
-<script type="text/javascript">
 
-function callDashboard() {
-	window.open('home.html','window','toolbar=no, menubar=no,status=no,titlebar=no, resizable=yes, location=no');
+<body ng-app="deidapp">
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <div ui-view autoscroll="true"></div>
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.1/angular-resource.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min.js"></script>
+	<script src="js/angular-datatables.min.js"></script>
+	<script src="js/smart-table.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/toggle-column.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/LoginCtrl.js"></script>
+    <script src="/js/controllers/DashboardCtrl.js"></script>
+    <script src="/js/controllers/MenuCtrl.js"></script>
+    <script src="/js/controllers/RShinyCtrl.js"></script>
+    
+	<script>
+function openNav() { 
+	document.getElementById('leftarw').style.display = 'none';
+    document.getElementById("mySidenav").style.width = "390px";
+    
 }
 
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById('leftarw').style.display = 'block';
+}
+var today = new Date();
+document.getElementById('time').innerHTML=today;
 </script>
-<body class="ng-scope">
  
-<div class="ng-scope" autoscroll="true" ui-view=""><section class="ng-scope">
-        <div id="gceproj"></div>
-        <div class="container">
-            <div class="admin-log">
-                <div class="text-center logo"> <img class="gce-logo" src="Images/Shadow_Square_Color_Inverted_RGB (1).gif"> </div>
-                <div class="gceproj-container">
-                    <form name="loginForm" class="form-signin ng-pristine ng-valid" id="drpxlog-login-form" role="form" method="post">
-                        <div class="form-group">
-                            <input class="form-control" type="email" placeholder="User Name" value="">
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control" type="password" placeholder="Password" value="">
-                        </div>
-                        <a class="btn btn-block w600" href="home.html">Sign in</a>
-                    </form>
-                    <a class="password-link" href="home.html"><small>Forgot your password?</small></a><br><br>
-                    <small class="register-link"><b>Don't have an account? <a href="#">RegisterHere</a> </b></small>
-                </div>
-            </div>
-        </div>
-</section></div>
 </body>
+
 </html>

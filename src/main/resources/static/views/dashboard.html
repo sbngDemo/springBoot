@@ -1,0 +1,125 @@
+<div  ng-include="'header.html'" class="clearfix"></div>
+<div  ng-include="'top_inner_nav.html'" class="clearfix"></div>
+<div  ng-include="'notification-panel.html'" class="clearfix"></div>
+ <div class="panel-heading">
+                            <span style="width:20px;">Dashboard </span>
+                            <div class="pull-right">
+                            <small style="width:20px;">
+                            		<label>Change View</label>
+				                   <select>
+				                         <option>Default</option>
+				                         <option onClick="selView1('1','2');">View1</option>
+				                         <option onClick="selView2('4','5');">View2</option>
+				                         <option onClick="selView3('2','3');">View3</option>
+				                    </select>
+				            </small>
+                            <a style="width:20px;" href="#" data-toggle="tooltip" data-placement="bottom"  title="Create New Project"><img src="Images/add-buttonn.png" /></a>
+                           </div>
+                        </div>
+  <div class="">
+      <table id="table1" st-table="displayCollection"
+					st-safe-src="projects" class="table table-bordered bordered table-striped table-condensed datatable">
+      <thead>
+						<tr>
+							<th><select
+								class="form-control input-sm"
+								ng-init="selectedItemPerPage = pageSizes[0].value"
+								ng-model="selectedItemPerPage"
+								ng-options="option.value as option.name for option in pageSizes"
+								ng-change="changePageSize()">
+							</select></th>
+							<th colspan="2"></th>
+							<th>
+				 <div class="dropdown">
+                      <button type="button" id="dLabel" class="btn btn-info btn-sm"
+									data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Columns Hide/Show <span class="caret"></span></button>
+                    <ul class="dropdown-menu list-inline list-group" style="width: 100%;" role="menu" aria-labelledby="dLabel">
+                    	<li>
+                    		 
+	                    		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	                        	<small class="list-group-item-heading">Select the columns to hide</small>
+                              
+                              <div st-toggle-menu></div>
+                              
+                         </li>
+                       </ul>                     
+                  </div>
+								 
+								<!-- <button type="button" class="btn btn-info btn-sm"
+									data-toggle="modal" data-target="#myModal">Columns Hide/Show</button>
+								<div class="modal fade" id="myModal" role="dialog">
+									<div class="modal-dialog">
+										Modal content
+										<div class="modal-content">
+											<div class="modal-header  bg-primary">
+												<button type="button" class="close" data-dismiss="modal">&times;</button>
+												<h4 class="modal-title">Select the columns to hide</h4>
+											</div>
+											<div class="modal-body  bg-info">
+												<div st-toggle-menu></div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn  btn-danger btn-default" data-dismiss="modal">
+													<span class="glyphicon glyphicon-remove"></span> Close
+												</button>
+											</div>
+										</div>
+
+									</div>
+								</div> -->
+							</th>
+							<th></th>
+							<th colspan="2"><input st-search
+								placeholder="Search Project Details..."
+								class="input-sm form-control type=" search"/></th>
+						</tr>
+						<tr style="background-color: #d9edf7;">
+
+
+							<th id="th1" st-toggle-column st-sort="projectName">Project Name <i class="fa fa-fw fa-sort"></i> </th>
+							<th id="th2" st-toggle-column st-sort="projectId">Project ID <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th3" st-toggle-column st-sort="createdBy">CreatedBy: <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th4" st-toggle-column st-sort="projectStatus">Project Status <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th5" st-toggle-column st-sort="dateInitiation">Date Initiation <i class="fa fa-fw fa-sort"></i></th>
+							<th id="th6" st-toggle-column st-sort="dateCompletion">Date Completion <i class="fa fa-fw "></i></th>
+							<th id="th7" st-toggle-column st-sort="action">Action</th>
+
+							<!--  <th lr-drag-src="headers" lr-drop-target="headers" st-toggle-column ng-repeat="col in tableHeader" st-sort="{{col.value}}" id="th{{$index+1}}">{{col.name}} <i class="fa fa-fw fa-sort"></i></th>
+                               <th  st-toggle-column>Action <i class="fa fa-fw" ></i></th> -->
+
+						</tr>
+					</thead>
+			
+        <tbody>
+						<!-- <tr ng-repeat="project in displayCollection">
+                                  
+                                    <td st-toggle-item ng-repeat="col in tableHeader"><span class="{{ project[col.value] | lowercase}}">{{project[col.value]}}</span></td>
+                                   <td st-toggle-item class="actions">
+                                       <a href="activities.html"><i class="fa fa-eye"></i></a>
+                                       <i class="fa fa-pencil"></i>
+                                       <i class="fa fa-times"></i>
+                                   </td>
+                               </tr> -->
+						<tr ng-repeat="project in displayCollection">
+							<td st-toggle-item>{{project.projectName}}</td>
+							<td st-toggle-item>{{project.projectId}}</td>
+							<td st-toggle-item>{{project.createdBy}}</td>
+							<td st-toggle-item><span
+								class="{{ project.projectStatus | lowercase}}">{{project.projectStatus}}</span></td>
+							<td st-toggle-item>{{project.dateInitiation}}</td>
+							<td st-toggle-item>{{project.dateCompletion}}</td>
+							<td st-toggle-item class="actions"><a  href="" ng-click="getScreen('activities.html','show')"><i
+									class="fa fa-eye"></i></a> <i class="fa fa-pencil"></i> <i
+								class="fa fa-times"></i></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="7" class="text-right">
+								<div st-pagination="" st-items-by-page="itemsPerPage"></div>
+							</td>
+						</tr>
+					</tfoot>
+    </table>
+    
+  </div>    

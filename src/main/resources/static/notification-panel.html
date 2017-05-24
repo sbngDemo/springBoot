@@ -1,0 +1,66 @@
+<div id="mySidenav" class="sidenav">
+            		<div class="panel-heading alert alert-info" style="text-align:center;">
+                            <b> Notifications Panel </b><i class="fa fa-bell fa-fw"></i>
+                            <a href="javascript:void(0)" class="pull-right" onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></a>
+                        </div>            		 
+            		<div class="noti-search">
+                        	<input ng-model="searchText" placeholder="Search Notifications"  type="search" />                     	 
+                        	 <select ng-model="statusFilter" class="showall">
+					                <option value=""> Show All </option>
+					                <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
+					         </select>
+					         <select st-input-event="change" class="pull-right">
+					               <option>Bulk actions</option>
+					               <option>Mark Unread</option>
+					               <option>Mark Read</option>
+				             </select>			             
+                        </div>           		
+            		<table class="table notitable" >
+            		<tbody>
+					    <tr ng-repeat="row in rowCollection | filter:statusFilter | filter:searchText" >
+					      <td ng-class="{'Today': row.timestamp == 'Today'}">{{$index+1}}</td>
+					      <td class="fa fa-square {{ row.status | lowercase}}-notification "></td> 
+					      <td ng-class="{'Today': row.timestamp == 'Today'}">{{row.notification}}</td>
+					      <td ng-class="{'Today': row.timestamp == 'Today'}"><em>{{row.timestamp}}</em>
+					                 <span ng-if="'High' ==  row.status" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span></td>
+						  <td> <input type="checkbox" ng-model="readst"> </td>
+					    </tr>				    
+					  </tbody>
+					</table>				 
+            		<!-- <div class="col-md-12">
+  						<div class="panel panel-default">
+                        <div class="panel-heading " style="text-align:center;">
+                            <b> Notifications Panel </b><i class="fa fa-bell fa-fw"></i>
+                            <a href="javascript:void(0)" class="pull-right" onclick="closeNav()">&times;</a>
+                        </div>
+                        <div class="noti-search">
+                        	<input ng-model="searchText" placeholder=" Search Notifications " class="fa fa-search form-control" type="search" />
+                        	 
+                        	 <select ng-model="statusFilter" class="showall">
+					                <option value=""> Show All </option>
+					                <option ng-repeat="row in rowCollection | unique:'status'"  value="{{row.status}}">{{row.status}}</option>
+					         </select>
+					         <select st-input-event="change" class="pull-right">
+					               <option>Bulk actions</option>
+					               <option>Mark Unread</option>
+					               <option>Mark Read</option>
+				             </select>
+				             
+                        </div> 
+                        <div id="not-inner-left">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item {{row.timestamp}}" ng-repeat="row in rowCollection | filter:statusFilter | filter:searchText">
+                                    <span>{{$index+1}}</span>
+                                    <i class="fa fa-square {{ row.status | lowercase}}-notification"></i> 
+                                    <span class="nfname">{{row.notification}}</span>
+                                    <span class="text-muted"><em>{{row.timestamp}}</em></span>
+                                    <span ng-if="'High' ==  row.status" class="fa fa-exclamation-triangle {{ row.status | lowercase}}-notification"></span>
+							        <span class="pull-right"><input type="checkbox" name=""></span>
+                                </a>
+                            </div>
+                            
+                        </div> 
+                    </div>
+				</div> -->
+				</div>
+ <a onclick="openNav()" id="leftarw" class="leftarw arrows" style="display:block;"> <img src="Images/notify.png" alt="Notifications"> </a>
